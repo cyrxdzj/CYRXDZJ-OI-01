@@ -1,1 +1,5 @@
 *.exe
+std/permutation/permutation.in
+std/permutation/permutation.out
+std/melody/melody.in
+std/melody/melody.out

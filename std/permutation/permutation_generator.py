@@ -5,7 +5,7 @@ seed=[15326548,132312,235697,2035689,1235684]
 def swap(x,y):
     return [y,x]
 def gen(subid,ptid,target=""):
-    #print("Gen sub %2d pt %2d"%(subid,ptid))
+    print("Gen sub %2d pt %2d"%(subid,ptid))
     n=0
     m=0
     op=[]

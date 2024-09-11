@@ -1,5 +1,5 @@
 #include<cstdio>
-#include"testlib.h"
+#include"../testlib.h"
 const int MAXN=1e5,MAXM=5e5;
 const int FLAG_NOT_PERMUTATION=2,FLAG_NO_SOLUTION=-1,FLAG_BREAK_RULE=1,FLAG_OK=0;
 int n,m;
