@@ -1,0 +1,24 @@
+└─permutation				# 顺序排列
+    │  config.yml			# 数据配置文件
+    │  permutation.md			# 题面文件
+    │  permutation.in			# 输入文件
+    │  permutation.out			# 输出文件
+    │  permutation_generator.py		# 数据生成器
+    │  permutation_batch_checker.py	# 批量测试标程
+    │  permutation_config_generator.py	# config.yml生成器
+    │  permutation_sol.md		# 题解文件
+    │  permutation_sol.pdf
+    │  permutation_sol1.cpp		# 各种标程
+    │  permutation_sol1.exe
+    │  permutation_sol2.cpp
+    │  permutation_sol2.exe
+    │  permutation_sol3.cpp
+    │  permutation_sol3.exe
+    │  permutation_sol4.cpp
+    │  permutation_sol4.exe
+    │  permutation_sol5.cpp
+    │  permutation_sol5.exe
+    │  permutation_testlib_checker.cpp	# checker
+    │  permutation_testlib_checker.exe
+    │  testlib.h			# checker 的依赖文件
+    └─data				# 评测时使用的正式测试数据
