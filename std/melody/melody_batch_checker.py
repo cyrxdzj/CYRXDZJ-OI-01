@@ -21,3 +21,6 @@ for i in range(1,5+1):
 for bid in range(1,5+1):
     for i in range(1,5+1):
         check(bid,i,"melody_sol4.exe")
+for bid in range(1,5+1):
+    for i in range(1,5+1):
+        check(bid,i,"melody_sol5.exe")
