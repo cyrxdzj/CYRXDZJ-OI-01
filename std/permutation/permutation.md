@@ -97,8 +97,8 @@ checker.exe <input-file> <output-file> <answer-file>
 | Subtask | 分值 | $n$             | $m$                    | 更多特殊性质                                                 |
 | ------- | ---- | --------------- | ---------------------- | ------------------------------------------------------------ |
 | 1       | 10   | $1\le n\le10$   | $0\le m\le5$           | 无                                                           |
-| 2       | 10   | $1\le n\le10^5$ | $0\le m\le5\times10^4$ | 对于所有 $1\le i\le n,1\le j\le n$，有 $x_i\neq y_j$。<br>对于所有 $1\le i<j\le n$，有 $x_i\neq x_j,y_i\neq y_j$。 |
-| 3       | 20   | $1\le n\le10^5$ | $m=n-1$                | 对于所有 $1\le k\le n$，至少存在一个 $1\le i\le n$，有 $x_i=k$ 或 $y_i=k$。<br>$y_i$ 互不相同。 |
+| 2       | 10   | $1\le n\le10^5$ | $0\le m\le5\times10^4$ | 对于所有 $1\le i\le n,1\le j\le n$，有 $x_i\neq y_j$。对于所有 $1\le i<j\le n$，有 $x_i\neq x_j,y_i\neq y_j$。 |
+| 3       | 20   | $1\le n\le10^5$ | $m=n-1$                | 对于所有 $1\le k\le n$，至少存在一个 $1\le i\le n$，有 $x_i=k$ 或 $y_i=k$。$y_i$ 互不相同。 |
 | 4       | 20   | $1\le n\le10^3$ | $0\le m\le3\times10^3$ | 无                                                           |
 | 5       | 40   | $1\le n\le10^5$ | $0\le m\le4\times10^5$ | 无                                                           |
 
