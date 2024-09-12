@@ -9,115 +9,115 @@ subtasks:
   - score: 10
     type: min
     cases:
-      - input:  data/permutation_sub01_pt01.in
-      - output: data/permutation_sub01_pt01.ans
-      - input:  data/permutation_sub01_pt02.in
-      - output: data/permutation_sub01_pt02.ans
-      - input:  data/permutation_sub01_pt03.in
-      - output: data/permutation_sub01_pt03.ans
-      - input:  data/permutation_sub01_pt04.in
-      - output: data/permutation_sub01_pt04.ans
-      - input:  data/permutation_sub01_pt05.in
-      - output: data/permutation_sub01_pt05.ans
-      - input:  data/permutation_sub01_pt06.in
-      - output: data/permutation_sub01_pt06.ans
-      - input:  data/permutation_sub01_pt07.in
-      - output: data/permutation_sub01_pt07.ans
-      - input:  data/permutation_sub01_pt08.in
-      - output: data/permutation_sub01_pt08.ans
-      - input:  data/permutation_sub01_pt09.in
-      - output: data/permutation_sub01_pt09.ans
-      - input:  data/permutation_sub01_pt10.in
-      - output: data/permutation_sub01_pt10.ans
+      - input:  permutation_sub01_pt01.in
+        output: permutation_sub01_pt01.ans
+      - input:  permutation_sub01_pt02.in
+        output: permutation_sub01_pt02.ans
+      - input:  permutation_sub01_pt03.in
+        output: permutation_sub01_pt03.ans
+      - input:  permutation_sub01_pt04.in
+        output: permutation_sub01_pt04.ans
+      - input:  permutation_sub01_pt05.in
+        output: permutation_sub01_pt05.ans
+      - input:  permutation_sub01_pt06.in
+        output: permutation_sub01_pt06.ans
+      - input:  permutation_sub01_pt07.in
+        output: permutation_sub01_pt07.ans
+      - input:  permutation_sub01_pt08.in
+        output: permutation_sub01_pt08.ans
+      - input:  permutation_sub01_pt09.in
+        output: permutation_sub01_pt09.ans
+      - input:  permutation_sub01_pt10.in
+        output: permutation_sub01_pt10.ans
   - score: 10
     type: min
     cases:
-      - input:  data/permutation_sub02_pt01.in
-      - output: data/permutation_sub02_pt01.ans
-      - input:  data/permutation_sub02_pt02.in
-      - output: data/permutation_sub02_pt02.ans
-      - input:  data/permutation_sub02_pt03.in
-      - output: data/permutation_sub02_pt03.ans
-      - input:  data/permutation_sub02_pt04.in
-      - output: data/permutation_sub02_pt04.ans
-      - input:  data/permutation_sub02_pt05.in
-      - output: data/permutation_sub02_pt05.ans
-      - input:  data/permutation_sub02_pt06.in
-      - output: data/permutation_sub02_pt06.ans
-      - input:  data/permutation_sub02_pt07.in
-      - output: data/permutation_sub02_pt07.ans
-      - input:  data/permutation_sub02_pt08.in
-      - output: data/permutation_sub02_pt08.ans
-      - input:  data/permutation_sub02_pt09.in
-      - output: data/permutation_sub02_pt09.ans
-      - input:  data/permutation_sub02_pt10.in
-      - output: data/permutation_sub02_pt10.ans
+      - input:  permutation_sub02_pt01.in
+        output: permutation_sub02_pt01.ans
+      - input:  permutation_sub02_pt02.in
+        output: permutation_sub02_pt02.ans
+      - input:  permutation_sub02_pt03.in
+        output: permutation_sub02_pt03.ans
+      - input:  permutation_sub02_pt04.in
+        output: permutation_sub02_pt04.ans
+      - input:  permutation_sub02_pt05.in
+        output: permutation_sub02_pt05.ans
+      - input:  permutation_sub02_pt06.in
+        output: permutation_sub02_pt06.ans
+      - input:  permutation_sub02_pt07.in
+        output: permutation_sub02_pt07.ans
+      - input:  permutation_sub02_pt08.in
+        output: permutation_sub02_pt08.ans
+      - input:  permutation_sub02_pt09.in
+        output: permutation_sub02_pt09.ans
+      - input:  permutation_sub02_pt10.in
+        output: permutation_sub02_pt10.ans
   - score: 20
     type: min
     cases:
-      - input:  data/permutation_sub03_pt01.in
-      - output: data/permutation_sub03_pt01.ans
-      - input:  data/permutation_sub03_pt02.in
-      - output: data/permutation_sub03_pt02.ans
-      - input:  data/permutation_sub03_pt03.in
-      - output: data/permutation_sub03_pt03.ans
-      - input:  data/permutation_sub03_pt04.in
-      - output: data/permutation_sub03_pt04.ans
-      - input:  data/permutation_sub03_pt05.in
-      - output: data/permutation_sub03_pt05.ans
-      - input:  data/permutation_sub03_pt06.in
-      - output: data/permutation_sub03_pt06.ans
-      - input:  data/permutation_sub03_pt07.in
-      - output: data/permutation_sub03_pt07.ans
-      - input:  data/permutation_sub03_pt08.in
-      - output: data/permutation_sub03_pt08.ans
-      - input:  data/permutation_sub03_pt09.in
-      - output: data/permutation_sub03_pt09.ans
-      - input:  data/permutation_sub03_pt10.in
-      - output: data/permutation_sub03_pt10.ans
+      - input:  permutation_sub03_pt01.in
+        output: permutation_sub03_pt01.ans
+      - input:  permutation_sub03_pt02.in
+        output: permutation_sub03_pt02.ans
+      - input:  permutation_sub03_pt03.in
+        output: permutation_sub03_pt03.ans
+      - input:  permutation_sub03_pt04.in
+        output: permutation_sub03_pt04.ans
+      - input:  permutation_sub03_pt05.in
+        output: permutation_sub03_pt05.ans
+      - input:  permutation_sub03_pt06.in
+        output: permutation_sub03_pt06.ans
+      - input:  permutation_sub03_pt07.in
+        output: permutation_sub03_pt07.ans
+      - input:  permutation_sub03_pt08.in
+        output: permutation_sub03_pt08.ans
+      - input:  permutation_sub03_pt09.in
+        output: permutation_sub03_pt09.ans
+      - input:  permutation_sub03_pt10.in
+        output: permutation_sub03_pt10.ans
   - score: 20
     type: min
     cases:
-      - input:  data/permutation_sub04_pt01.in
-      - output: data/permutation_sub04_pt01.ans
-      - input:  data/permutation_sub04_pt02.in
-      - output: data/permutation_sub04_pt02.ans
-      - input:  data/permutation_sub04_pt03.in
-      - output: data/permutation_sub04_pt03.ans
-      - input:  data/permutation_sub04_pt04.in
-      - output: data/permutation_sub04_pt04.ans
-      - input:  data/permutation_sub04_pt05.in
-      - output: data/permutation_sub04_pt05.ans
-      - input:  data/permutation_sub04_pt06.in
-      - output: data/permutation_sub04_pt06.ans
-      - input:  data/permutation_sub04_pt07.in
-      - output: data/permutation_sub04_pt07.ans
-      - input:  data/permutation_sub04_pt08.in
-      - output: data/permutation_sub04_pt08.ans
-      - input:  data/permutation_sub04_pt09.in
-      - output: data/permutation_sub04_pt09.ans
-      - input:  data/permutation_sub04_pt10.in
-      - output: data/permutation_sub04_pt10.ans
+      - input:  permutation_sub04_pt01.in
+        output: permutation_sub04_pt01.ans
+      - input:  permutation_sub04_pt02.in
+        output: permutation_sub04_pt02.ans
+      - input:  permutation_sub04_pt03.in
+        output: permutation_sub04_pt03.ans
+      - input:  permutation_sub04_pt04.in
+        output: permutation_sub04_pt04.ans
+      - input:  permutation_sub04_pt05.in
+        output: permutation_sub04_pt05.ans
+      - input:  permutation_sub04_pt06.in
+        output: permutation_sub04_pt06.ans
+      - input:  permutation_sub04_pt07.in
+        output: permutation_sub04_pt07.ans
+      - input:  permutation_sub04_pt08.in
+        output: permutation_sub04_pt08.ans
+      - input:  permutation_sub04_pt09.in
+        output: permutation_sub04_pt09.ans
+      - input:  permutation_sub04_pt10.in
+        output: permutation_sub04_pt10.ans
   - score: 40
     type: min
     cases:
-      - input:  data/permutation_sub05_pt01.in
-      - output: data/permutation_sub05_pt01.ans
-      - input:  data/permutation_sub05_pt02.in
-      - output: data/permutation_sub05_pt02.ans
-      - input:  data/permutation_sub05_pt03.in
-      - output: data/permutation_sub05_pt03.ans
-      - input:  data/permutation_sub05_pt04.in
-      - output: data/permutation_sub05_pt04.ans
-      - input:  data/permutation_sub05_pt05.in
-      - output: data/permutation_sub05_pt05.ans
-      - input:  data/permutation_sub05_pt06.in
-      - output: data/permutation_sub05_pt06.ans
-      - input:  data/permutation_sub05_pt07.in
-      - output: data/permutation_sub05_pt07.ans
-      - input:  data/permutation_sub05_pt08.in
-      - output: data/permutation_sub05_pt08.ans
-      - input:  data/permutation_sub05_pt09.in
-      - output: data/permutation_sub05_pt09.ans
-      - input:  data/permutation_sub05_pt10.in
-      - output: data/permutation_sub05_pt10.ans
+      - input:  permutation_sub05_pt01.in
+        output: permutation_sub05_pt01.ans
+      - input:  permutation_sub05_pt02.in
+        output: permutation_sub05_pt02.ans
+      - input:  permutation_sub05_pt03.in
+        output: permutation_sub05_pt03.ans
+      - input:  permutation_sub05_pt04.in
+        output: permutation_sub05_pt04.ans
+      - input:  permutation_sub05_pt05.in
+        output: permutation_sub05_pt05.ans
+      - input:  permutation_sub05_pt06.in
+        output: permutation_sub05_pt06.ans
+      - input:  permutation_sub05_pt07.in
+        output: permutation_sub05_pt07.ans
+      - input:  permutation_sub05_pt08.in
+        output: permutation_sub05_pt08.ans
+      - input:  permutation_sub05_pt09.in
+        output: permutation_sub05_pt09.ans
+      - input:  permutation_sub05_pt10.in
+        output: permutation_sub05_pt10.ans

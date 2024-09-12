@@ -10,8 +10,8 @@ checker: permutation_testlib_checker.cpp
 def prt_subtask(subid,tcnt,score):
     print("  - score: %d\n    type: min\n    cases:"%score)
     for ptid in range(1,tcnt+1):
-        print("      - input:  data/permutation_sub%02d_pt%02d.in"%(subid,ptid))
-        print("      - output: data/permutation_sub%02d_pt%02d.ans"%(subid,ptid))
+        print("      - input:  permutation_sub%02d_pt%02d.in"%(subid,ptid))
+        print("        output: permutation_sub%02d_pt%02d.ans"%(subid,ptid))
 print(pre)
 print("subtasks:")
 prt_subtask(1,10,10)

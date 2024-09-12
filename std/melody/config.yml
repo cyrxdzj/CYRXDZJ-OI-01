@@ -1,0 +1,72 @@
+type: default
+time: 1s
+memory: 256m
+filename: melody
+checker_type: default
+
+subtasks:
+  - score: 10
+    type: min
+    cases:
+      - input:  melody_sub01_pt01.in
+        output: melody_sub01_pt01.ans
+      - input:  melody_sub01_pt02.in
+        output: melody_sub01_pt02.ans
+      - input:  melody_sub01_pt03.in
+        output: melody_sub01_pt03.ans
+      - input:  melody_sub01_pt04.in
+        output: melody_sub01_pt04.ans
+      - input:  melody_sub01_pt05.in
+        output: melody_sub01_pt05.ans
+  - score: 10
+    type: min
+    cases:
+      - input:  melody_sub02_pt01.in
+        output: melody_sub02_pt01.ans
+      - input:  melody_sub02_pt02.in
+        output: melody_sub02_pt02.ans
+      - input:  melody_sub02_pt03.in
+        output: melody_sub02_pt03.ans
+      - input:  melody_sub02_pt04.in
+        output: melody_sub02_pt04.ans
+      - input:  melody_sub02_pt05.in
+        output: melody_sub02_pt05.ans
+  - score: 20
+    type: min
+    cases:
+      - input:  melody_sub03_pt01.in
+        output: melody_sub03_pt01.ans
+      - input:  melody_sub03_pt02.in
+        output: melody_sub03_pt02.ans
+      - input:  melody_sub03_pt03.in
+        output: melody_sub03_pt03.ans
+      - input:  melody_sub03_pt04.in
+        output: melody_sub03_pt04.ans
+      - input:  melody_sub03_pt05.in
+        output: melody_sub03_pt05.ans
+  - score: 20
+    type: min
+    cases:
+      - input:  melody_sub04_pt01.in
+        output: melody_sub04_pt01.ans
+      - input:  melody_sub04_pt02.in
+        output: melody_sub04_pt02.ans
+      - input:  melody_sub04_pt03.in
+        output: melody_sub04_pt03.ans
+      - input:  melody_sub04_pt04.in
+        output: melody_sub04_pt04.ans
+      - input:  melody_sub04_pt05.in
+        output: melody_sub04_pt05.ans
+  - score: 40
+    type: min
+    cases:
+      - input:  melody_sub05_pt01.in
+        output: melody_sub05_pt01.ans
+      - input:  melody_sub05_pt02.in
+        output: melody_sub05_pt02.ans
+      - input:  melody_sub05_pt03.in
+        output: melody_sub05_pt03.ans
+      - input:  melody_sub05_pt04.in
+        output: melody_sub05_pt04.ans
+      - input:  melody_sub05_pt05.in
+        output: melody_sub05_pt05.ans
