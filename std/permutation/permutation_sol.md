@@ -45,6 +45,8 @@ $n^2$ 可过，给不会拓扑排序的同学准备的。
 #include<algorithm>
 #include<queue>
 using namespace std;
+//#define debug 
+#define check
 const int MAXN=1e5,MAXM=5e5;
 int n,m;
 struct Edge
@@ -65,18 +67,33 @@ int ans[MAXN+5];
 int main()
 {
 	freopen("permutation.in","r",stdin);
-	freopen("permutation.out","w",stdout);
 	scanf("%d%d",&n,&m);
+	#ifdef check//包在check段中的代码完全可以忽略 。 
+	if(n<1||n>100000||m<0||m>400000)
+	{
+		printf("\033[31mData Check Failed.\n");
+		printf("n %d m %d\033[0m\n",n,m);
+		return 1;
+	}
+	#endif
 	for(int i=1;i<=m;i++)
 	{
 		int u,v;
 		scanf("%d%d",&u,&v);
+		#ifdef check
+		if(u<1||u>n||v<1||v>n)
+		{
+			printf("\033[31mData Check Failed.\n");
+			printf("Rule ID %d x %d y %d\033[0m\n",i,u,v);
+			return 1;
+		}
+		#endif
 		add_edge(u,v);
 		deg[v]++;
 	}
 	for(int i=1;i<=n;i++)
 	{
-		if(deg[i]==0)
+		if(deg[i]==0)//发现起点。需要注意可能有多个起点。 
 		{
 			q.push(i);
 		}
@@ -96,9 +113,12 @@ int main()
 			}
 		}
 	}
+	#ifndef debug
+	freopen("permutation.out","w",stdout);
+	#endif
 	for(int i=1;i<=n;i++)
 	{
-		if(deg[i])
+		if(deg[i])//如果到现在还有入度不为0的边，说明图里出现了环，因此无解。 
 		{
 			printf("-1");
 			return 0;
@@ -115,8 +135,6 @@ int main()
 	return 0;
 }
 ```
-
-
 
 ### 版权信息
 

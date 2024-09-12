@@ -25,7 +25,7 @@ int main()
 {
 	freopen("permutation.in","r",stdin);
 	scanf("%d%d",&n,&m);
-	#ifdef check
+	#ifdef check//包在check段中的代码完全可以忽略 。 
 	if(n<1||n>100000||m<0||m>400000)
 	{
 		printf("\033[31mData Check Failed.\n");
@@ -50,7 +50,7 @@ int main()
 	}
 	for(int i=1;i<=n;i++)
 	{
-		if(deg[i]==0)
+		if(deg[i]==0)//发现起点。需要注意可能有多个起点。 
 		{
 			q.push(i);
 		}
@@ -75,7 +75,7 @@ int main()
 	#endif
 	for(int i=1;i<=n;i++)
 	{
-		if(deg[i])
+		if(deg[i])//如果到现在还有入度不为0的边，说明图里出现了环，因此无解。 
 		{
 			printf("-1");
 			return 0;
