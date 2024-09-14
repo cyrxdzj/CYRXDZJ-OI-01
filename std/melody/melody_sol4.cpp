@@ -27,8 +27,8 @@ struct Matrix
 			}
 		}
 	}
-}st,mc;
-Matrix operator *(Matrix a,Matrix b)
+}st,mc;//st是起始矩阵，mc是中间矩阵。 
+Matrix operator *(Matrix a,Matrix b)//矩阵乘法 
 {
 	Matrix res(a.r,b.c);
 	for(int i=0;i<a.r;i++)
@@ -46,7 +46,7 @@ Matrix operator *(Matrix a,Matrix b)
 Matrix qpow(Matrix a,long long b)
 {
 	Matrix res=Matrix(3,3);
-	for(int i=0;i<3;i++)
+	for(int i=0;i<3;i++)//这个矩阵无论乘上哪个矩阵都等于原矩阵，相当于实数乘法中的1. 
 	{
 		res.data[i][i]=1;
 	}

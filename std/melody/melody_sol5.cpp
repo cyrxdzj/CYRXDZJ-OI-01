@@ -7,7 +7,7 @@ int n;
 long long m;
 long long c[MAXN+5];
 long long a,b;
-long long qpow(long long a,long long b)
+long long qpow(long long a,long long b)//快速幂，用于求 2 的逆元 
 {
 	long long res=1;
 	while(b)
@@ -31,11 +31,11 @@ int main()
 	{
 		scanf("%lld",&c[i]);
 	}
-	m%=MOD;
+	m%=MOD;//加法和乘法中随便取模 
 	a=(a+(b*n%MOD*m%MOD))%MOD;
 	for(int i=1;i<=n;i++)
 	{
-		long long st=n-i,ed=n-i+((long long)(m-1))*((long long)n);
+		long long st=n-i,ed=n*m-i;//等差数列首项与末项 
 		st%=MOD;
 		ed%=MOD;
 		a=(a+(c[i]*(((st+ed)%MOD*((long long)m)%MOD*INV2%MOD))%MOD))%MOD;
