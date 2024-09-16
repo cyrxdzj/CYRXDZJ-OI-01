@@ -16,7 +16,11 @@ for i in range(1,3+1):
     check(1,i,"library_sol1.exe")
 for i in range(4,9+1):
     check(1,i,"library_sol2.exe")
+for i in range(1,25+1):
+    check(1,i,"library_sol3.exe")
 for i in range(1,2+1):
     check(2,i,"library_sol1.exe")
 for i in range(3,3+1):
     check(2,i,"library_sol2.exe")
+for i in range(1,5+1):
+    check(2,i,"library_sol3.exe")

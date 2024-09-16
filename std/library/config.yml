@@ -1,6 +1,6 @@
 type: default
 time: 5s
-memory: 512m
+memory: 1024m
 filename: library
 checker_type: default
 
@@ -26,3 +26,35 @@ subtasks:
         output: library_sub01_pt08.ans
       - input:  library_sub01_pt09.in
         output: library_sub01_pt09.ans
+      - input:  library_sub01_pt10.in
+        output: library_sub01_pt10.ans
+      - input:  library_sub01_pt11.in
+        output: library_sub01_pt11.ans
+      - input:  library_sub01_pt12.in
+        output: library_sub01_pt12.ans
+      - input:  library_sub01_pt13.in
+        output: library_sub01_pt13.ans
+      - input:  library_sub01_pt14.in
+        output: library_sub01_pt14.ans
+      - input:  library_sub01_pt15.in
+        output: library_sub01_pt15.ans
+      - input:  library_sub01_pt16.in
+        output: library_sub01_pt16.ans
+      - input:  library_sub01_pt17.in
+        output: library_sub01_pt17.ans
+      - input:  library_sub01_pt18.in
+        output: library_sub01_pt18.ans
+      - input:  library_sub01_pt19.in
+        output: library_sub01_pt19.ans
+      - input:  library_sub01_pt20.in
+        output: library_sub01_pt20.ans
+      - input:  library_sub01_pt21.in
+        output: library_sub01_pt21.ans
+      - input:  library_sub01_pt22.in
+        output: library_sub01_pt22.ans
+      - input:  library_sub01_pt23.in
+        output: library_sub01_pt23.ans
+      - input:  library_sub01_pt24.in
+        output: library_sub01_pt24.ans
+      - input:  library_sub01_pt25.in
+        output: library_sub01_pt25.ans

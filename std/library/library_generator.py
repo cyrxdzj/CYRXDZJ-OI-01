@@ -145,7 +145,7 @@ def gen(subid,ptid,target=""):
     elif ((subid==1) and (10<=ptid<=11)):
         C=n+m2
     elif ((subid==1) and (12<=ptid and ptid<=25)) or (subid==2 and (4<=ptid and ptid<=5)):
-        C=random.randint(100000*((ptid%2)+1),300000)
+        C=random.randint(100000*((ptid%2)+1),200000)
     elif (subid==2 and ptid==1):
         m1=5
         m2=1
@@ -215,7 +215,10 @@ def gen(subid,ptid,target=""):
             books.append(book)
         for i in range(m1):
             l.append(random.randint(1,max(1,n*(i+1)//m1)))
-            r.append(random.randint(max(l[i],n-n*(i+1)//m1),n))
+            if subid==1 and (12<=ptid and ptid<=13):
+                r.append(l[i])
+            else:
+                r.append(random.randint(max(l[i],n-n*(i+1)//m1),n))
             v.append(random.randint(difficulty_min,difficulty_max))
         for i in range(m2):
             x.append(random.randint(1,n))
@@ -260,7 +263,7 @@ for i in range(4,9+1):
     gen(1,i,"library_sol2.exe")
     pass
 for i in range(10,25+1):
-    gen(1,i)
+    gen(1,i,"library_sol3.exe")
     pass
 for i in range(1,2+1):
     gen(2,i,"library_sol1.exe")
@@ -269,6 +272,6 @@ for i in range(3,3+1):
     gen(2,i,"library_sol2.exe")
     pass
 for i in range(4,5+1):
-    gen(2,i)
+    gen(2,i,"library_sol3.exe")
     pass
 #gen(1,5)

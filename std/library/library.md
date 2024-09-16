@@ -145,9 +145,9 @@
 | 6~7   | $\le5\times10^4$ | $\le2\times10^4$ | $\le1\times10^5$ | $\le1\times10^5$    | 书本不会更新，你只会收到消息 1；$c_i\le2$   |
 | 8~9   | $\le5\times10^4$ | $\le2\times10^4$ | $\le1\times10^5$ | $\le1\times10^9$    | 书本不会更新，你只会收到消息 1             |
 | 10~11 | $\le5\times10^4$ | $\le2\times10^4$ | $\le1\times10^5$ | $\le1\times10^9$    | 所有书本（包括初始的书和更新的书）都只有恰好 $1$ 页 |
-| 12~13 | $\le5\times10^4$ | $\le2\times10^4$ | $\le3\times10^5$ | $\le1\times10^9$    | 对于所有消息 1，都有 $l=r$            |
-| 14~17 | $\le5\times10^4$ | $\le2\times10^4$ | $\le3\times10^5$ | $\le1\times10^5$    | 无                            |
-| 18~25 | $\le5\times10^4$ | $\le2\times10^4$ | $\le3\times10^5$ | $\le1\times10^9$    | 无                            |
+| 12~13 | $\le5\times10^4$ | $\le2\times10^4$ | $\le2\times10^5$ | $\le1\times10^9$    | 对于所有消息 1，都有 $l=r$            |
+| 14~17 | $\le5\times10^4$ | $\le2\times10^4$ | $\le2\times10^5$ | $\le1\times10^5$    | 无                            |
+| 18~25 | $\le5\times10^4$ | $\le2\times10^4$ | $\le2\times10^5$ | $\le1\times10^9$    | 无                            |
 | 样例1   | $\le50$          | $\le100$         | $\le300$         | $\le10$             | 符合测试点 1~3 的要求                |
 | 样例2   | $\le50$          | $\le100$         | $\le300$         | $\le10$             | 符合测试点 1~3 的要求                |
 | 样例3   | $\le5\times10^4$ | $\le2\times10^4$ | $\le1\times10^5$ | $\le1\times10^9$    | 符合测试点 6~7 的要求与特殊性质           |

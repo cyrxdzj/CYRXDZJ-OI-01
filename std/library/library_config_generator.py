@@ -2,7 +2,7 @@ import sys
 pre=\
 '''type: default
 time: 5s
-memory: 512m
+memory: 1024m
 filename: library
 checker_type: default
 '''
@@ -13,4 +13,4 @@ def prt_subtask(subid,tcnt,score):
         print("        output: library_sub%02d_pt%02d.ans"%(subid,ptid))
 print(pre)
 print("subtasks:")
-prt_subtask(1,9,100)
+prt_subtask(1,25,100)
