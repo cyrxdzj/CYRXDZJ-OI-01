@@ -16,11 +16,11 @@ for i in range(1,25+1):
     #check(1,i,"library_sol4.exe")
     pass
 for i in range(1,3+1):
-    #check(1,i,"library_sol1.exe")
+    check(1,i,"library_sol1.exe")
     pass
 for i in range(4,9+1):
-    #check(1,i,"library_sol2.exe")
-    pass
+    check(1,i,"library_sol2.exe")
+    #pass
 for i in range(1,25+1):
     check(1,i,"library_sol3.exe")
     check(1,i,"library_sol5.exe")

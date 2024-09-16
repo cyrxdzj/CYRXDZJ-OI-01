@@ -1,5 +1,5 @@
 type: default
-time: 3500ms
+time: 3000ms
 memory: 1024m
 filename: library
 checker_type: default
@@ -16,16 +16,22 @@ subtasks:
         output: library_sub01_pt03.ans
       - input:  library_sub01_pt04.in
         output: library_sub01_pt04.ans
+        time: 4000ms
       - input:  library_sub01_pt05.in
         output: library_sub01_pt05.ans
+        time: 4000ms
       - input:  library_sub01_pt06.in
         output: library_sub01_pt06.ans
+        time: 4000ms
       - input:  library_sub01_pt07.in
         output: library_sub01_pt07.ans
+        time: 4000ms
       - input:  library_sub01_pt08.in
         output: library_sub01_pt08.ans
+        time: 4000ms
       - input:  library_sub01_pt09.in
         output: library_sub01_pt09.ans
+        time: 4000ms
       - input:  library_sub01_pt10.in
         output: library_sub01_pt10.ans
       - input:  library_sub01_pt11.in

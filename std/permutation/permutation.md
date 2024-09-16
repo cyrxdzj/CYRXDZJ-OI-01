@@ -2,6 +2,10 @@
 
 ### 题目描述
 
+时间限制：1s
+
+空间限制：256MB
+
 司曾经拥有一个长度为 $n$ 的**排列** $a$，第 $i$ 个数记为 $a_i$。但他是一个健忘的人，忘记了这个排列。
 
 好在他（自认为）记住了 $m$ 条限制条件，第 $i$ 条限制条件记为 $x_i$，$y_i$， 表示 $a_{x_i}<a_{y_i}$。
@@ -94,20 +98,20 @@
 checker.exe <input-file> <output-file> <answer-file>
 ```
 
-| Subtask | 分值 | $n$             | $m$                    | 更多特殊性质                                                 |
-| ------- | ---- | --------------- | ---------------------- | ------------------------------------------------------------ |
-| 1       | 10   | $1\le n\le10$   | $0\le m\le5$           | 无                                                           |
-| 2       | 10   | $1\le n\le10^5$ | $0\le m\le5\times10^4$ | 对于所有 $1\le i\le n,1\le j\le n$，有 $x_i\neq y_j$。对于所有 $1\le i<j\le n$，有 $x_i\neq x_j,y_i\neq y_j$。 |
-| 3       | 20   | $1\le n\le10^5$ | $m=n-1$                | 对于所有 $1\le k\le n$，至少存在一个 $1\le i\le n$，有 $x_i=k$ 或 $y_i=k$。$y_i$ 互不相同。 |
-| 4       | 20   | $1\le n\le10^3$ | $0\le m\le3\times10^3$ | 无                                                           |
-| 5       | 40   | $1\le n\le10^5$ | $0\le m\le4\times10^5$ | 无                                                           |
+| Subtask | 分值  | $n$             | $m$                    | 更多特殊性质                                                                                           |
+| ------- | --- | --------------- | ---------------------- | ------------------------------------------------------------------------------------------------ |
+| 1       | 10  | $1\le n\le10$   | $0\le m\le5$           | 无                                                                                                |
+| 2       | 10  | $1\le n\le10^5$ | $0\le m\le5\times10^4$ | 对于所有 $1\le i\le n,1\le j\le n$，有 $x_i\neq y_j$。对于所有 $1\le i<j\le n$，有 $x_i\neq x_j,y_i\neq y_j$。 |
+| 3       | 20  | $1\le n\le10^5$ | $m=n-1$                | 对于所有 $1\le k\le n$，至少存在一个 $1\le i\le n$，有 $x_i=k$ 或 $y_i=k$。$y_i$ 互不相同。                          |
+| 4       | 20  | $1\le n\le10^3$ | $0\le m\le3\times10^3$ | 无                                                                                                |
+| 5       | 40  | $1\le n\le10^5$ | $0\le m\le4\times10^5$ | 无                                                                                                |
 
 对于所有数据，都有：$1\le n\le10^5$，$0\le m\le4\times10^5$。
 
 ### 版权信息
 
-题目：[邓子君](https://www.luogu.com.cn/user/387836)
+题目：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)
 
-数据：[邓子君](https://www.luogu.com.cn/user/387836)
+数据：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)
 
 在 [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.zh-hans) 协议下共享。

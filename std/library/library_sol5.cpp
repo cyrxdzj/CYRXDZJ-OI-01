@@ -3,6 +3,42 @@
 #include<vector>
 #include<cmath>
 using namespace std;
+//FastIO
+template<typename T>
+void read(T &x)
+{
+	x=0;
+	int f=1;
+	char c=getchar();
+	while(c<'0'||c>'9')
+	{
+		if(c=='-')
+		{
+			f*=-1;
+		}
+		c=getchar();
+	}
+	while(c>='0'&&c<='9')
+	{
+		x=(x<<1)+(x<<3)+c-'0';
+		c=getchar();
+	}
+	x*=f;
+}
+template<typename T>
+void write(T x)
+{
+	if(x<0)
+	{
+		putchar('-');
+		x=-x;
+	}
+	if(x>=10)
+	{
+		write(x/10);
+	}
+	putchar('0'+(x%10));
+}
 //#define debug
 const int MAXN=5e4,MAXM=5e4,MAXC=4e5+1;
 const int MIND=0,MAXD=1e9;
@@ -32,16 +68,19 @@ struct Book
 	void read_book()
 	{
 		pages.clear();
-		scanf("%d",&c);
+		//scanf("%d",&c);
+		read(c);
 		for(int i=0;i<c;i++)
 		{
 			int d;
-			scanf("%d",&d);
+			//scanf("%d",&d);
+			read(d);
 			pages.push_back(make_pair(d,0));
 		}
 		for(int i=0;i<c;i++)
 		{
-			scanf("%lld",&pages[i].second);
+			//scanf("%lld",&pages[i].second);
+			read(pages[i].second);
 		}
 		sort(pages.begin(),pages.end());
 		vector<pair<int,long long>>unique_pages;
@@ -251,7 +290,8 @@ int main()
 	#ifndef debug
 	freopen("library.out","w",stdout);
 	#endif
-	scanf("%d",&n);
+	//scanf("%d",&n);
+	read(n);
 	BLOCK=sqrt(n);
 	for(int i=1;i<=BLOCK;i++)
 	{
@@ -274,7 +314,8 @@ int main()
 		add_book(i);
 	}
 	//return 0;
-	scanf("%d",&m);
+	//scanf("%d",&m);
+	read(m);
 	for(int qid=1;qid<=m;qid++)
 	{
 		int op;
@@ -282,7 +323,8 @@ int main()
 		if(op==2)
 		{
 			int x;
-			scanf("%d",&x);
+			//scanf("%d",&x);
+			read(x);
 			del_book(x);
 			a[x].read_book();
 			add_book(x);
@@ -290,7 +332,8 @@ int main()
 		else
 		{
 			int l,r,v;
-			scanf("%d%d%d",&l,&r,&v);
+			//scanf("%d%d%d",&l,&r,&v);
+			read(l);read(r);read(v);
 			Num res=Num();
 			int lbid=(l-1)/BLOCK+1;
 			int rbid=(r-1)/BLOCK+1;
@@ -330,7 +373,9 @@ int main()
 					res=res*query(rt[i],v,MIND,MAXD);
 				}
 			}
-			printf("%lld\n",(long long)res);
+			//printf("%lld\n",(long long)res);
+			write((long long)res);
+			putchar('\n');
 		}
 	}
 	//printf("pcnt %d\n",pcnt);

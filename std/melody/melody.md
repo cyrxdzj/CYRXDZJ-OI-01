@@ -2,6 +2,10 @@
 
 ### 题目描述
 
+时间限制：1s
+
+空间限制：256MB
+
 Leo/need 四人正在演奏。
 
 一首曲子由 $n$ 个音符组成，第 $i$ 个音符的**回响度**记为 $c_i$。
@@ -86,8 +90,8 @@ Leo/need 会将一首相同的曲子演奏 $m$ 次，每一次都是按顺序地
 
 ### 版权信息
 
-题目：[邓子君](https://www.luogu.com.cn/user/387836)等，基于某题目改编
+题目：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)等，基于某题目改编
 
-数据：[邓子君](https://www.luogu.com.cn/user/387836)
+数据：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)
 
 在 [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.zh-hans) 协议下共享。

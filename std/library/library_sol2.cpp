@@ -3,6 +3,42 @@
 #include<vector>
 #include<cmath>
 using namespace std;
+//FastIO
+template<typename T>
+void read(T &x)
+{
+	x=0;
+	int f=1;
+	char c=getchar();
+	while(c<'0'||c>'9')
+	{
+		if(c=='-')
+		{
+			f*=-1;
+		}
+		c=getchar();
+	}
+	while(c>='0'&&c<='9')
+	{
+		x=(x<<1)+(x<<3)+c-'0';
+		c=getchar();
+	}
+	x*=f;
+}
+template<typename T>
+void write(T x)
+{
+	if(x<0)
+	{
+		putchar('-');
+		x=-x;
+	}
+	if(x>=10)
+	{
+		write(x/10);
+	}
+	putchar('0'+(x%10));
+}
 //#define debug
 const int MAXN=5e4,MAXM=5e4,MAXC=4e5+1;
 const long long MOD=998244353;
@@ -45,16 +81,19 @@ struct Book
 	void read_book()
 	{
 		pages.clear();
-		scanf("%d",&c);
+		//scanf("%d",&c);
+		read(c);
 		for(int i=0;i<c;i++)
 		{
 			int d;
-			scanf("%d",&d);
+			//scanf("%d",&d);
+			read(d);
 			pages.push_back(make_pair(d,0));
 		}
 		for(int i=0;i<c;i++)
 		{
-			scanf("%lld",&pages[i].second);
+			//scanf("%lld",&pages[i].second);
+			read(pages[i].second);
 		}
 		sort(pages.begin(),pages.end());
 	}
@@ -237,7 +276,8 @@ int main()
 	#ifndef debug
 	freopen("library.out","w",stdout);
 	#endif
-	scanf("%d",&n);
+	//scanf("%d",&n);
+	read(n);
 	add_data(0);
 	for(int i=1;i<=n;i++)
 	{
@@ -251,11 +291,11 @@ int main()
 	#ifdef debug
 	for(int i=1;i<=dcnt;i++)
 	{
-		//printf("%lld ",data[i]);
+		printf("%lld ",data[i]);
 	}
-	//printf("\n");
+	printf("\n");
 	printf("dcnt %d\n",dcnt);
-	//return 0;
+	return 0;
 	#endif
 	build(1,1,dcnt);
 	for(int i=1;i<=n;i++)
@@ -265,12 +305,14 @@ int main()
 			a[i].pages[j].first=get_dataid(a[i].pages[j].first);
 		}
 	}
-	scanf("%d",&m);
+	//scanf("%d",&m);
+	read(m);
 	BLOCK=n/sqrt(m);
 	for(int i=1;i<=m;i++)
 	{
 		int op;
-		scanf("%d%d%d%d",&op,&qry[i].l,&qry[i].r,&qry[i].v);
+		//scanf("%d%d%d%d",&op,&qry[i].l,&qry[i].r,&qry[i].v);
+		read(op);read(qry[i].l);read(qry[i].r);read(qry[i].v);
 		//printf("%d %d %d\n",qry[i].l,qry[i].r,qry)
 		qry[i].id=i;
 	}
@@ -326,7 +368,9 @@ int main()
 	}
 	for(int i=1;i<=m;i++)
 	{
-		printf("%lld\n",ans[i]);
+		//printf("%lld\n",ans[i]);
+		write(ans[i]);
+		putchar('\n');
 	}
 	#ifdef debug
 	printf("opcnt %d\n",opcnt);
