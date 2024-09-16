@@ -25,17 +25,12 @@ struct Book
 			scanf("%lld",&pages[i].second);
 		}
 		sort(pages.begin(),pages.end());
-		#ifdef debug
-		//printf("Read book page cnt %d\n",c);
-		#endif
 	}
 }a[MAXN+5];
 int main()
 {
 	freopen("library.in","r",stdin);
-	#ifndef debug
 	freopen("library.out","w",stdout);
-	#endif
 	scanf("%d",&n);
 	for(int i=1;i<=n;i++)
 	{
@@ -51,9 +46,6 @@ int main()
 			int l,r;
 			int v;
 			scanf("%d%d%d",&l,&r,&v);
-			#ifdef debug
-			printf("%d-%d %d\n",l,r,v);
-			#endif
 			long long ans=1;
 			for(int i=l;i<=r;i++)
 			{
@@ -62,9 +54,6 @@ int main()
 				{
 					if(v>=page.first)
 					{
-						#ifdef debug
-						printf("book %d page d %d p %lld\n",i,page.first,page.second);
-						#endif
 						nowsum=(nowsum+page.second)%MOD;
 					}
 					else
@@ -72,9 +61,6 @@ int main()
 						break;
 					}
 				}
-				#ifdef debug
-				//printf("%lld\n",nowsum);
-				#endif
 				ans=(ans*nowsum)%MOD;
 			}
 			printf("%lld\n",ans);

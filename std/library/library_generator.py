@@ -138,8 +138,10 @@ def gen(subid,ptid,target=""):
         ops=[1,1,1,2,1,1]
     if ((subid==1) and (ptid<=3)):
         C=random.randint(100*ptid,300)
-    elif ((subid==1) and (4<=ptid and ptid<=9)) or (subid==2 and (2<=ptid and ptid<=3)):
-        C=random.randint(50000*((ptid%2)+1),100000)
+    elif ((subid==2) and (ptid==2)):
+        C=300
+    elif ((subid==1) and (4<=ptid and ptid<=9)) or (subid==2 and (ptid==3)):
+        C=n*2
     elif ((subid==1) and (10<=ptid<=11)):
         C=n+m2
     elif ((subid==1) and (12<=ptid and ptid<=25)) or (subid==2 and (4<=ptid and ptid<=5)):
@@ -159,7 +161,13 @@ def gen(subid,ptid,target=""):
         difficulty_min=1
     if ((subid==1) and (ptid in ([9]+list(range(16,17+1))+list(range(19,25+1))))):
         difficulty_repeat=True
-    if not (subid==2 and ptid==1):
+    if (subid==2 and ptid==1):
+        pass
+    elif (subid==1 and (4<=ptid<=9)) or (subid==2 and ptid==3):
+        cs=[]
+        for i in range(n):
+            cs.append(2)
+    else:
         cs=gen_array(n+m2,C)
         for i in range(n+m2):
             if cs[i]>difficulty_max:
@@ -248,12 +256,18 @@ def gen(subid,ptid,target=""):
 for i in range(1,3+1):
     gen(1,i,"library_sol1.exe")
     #pass
-for i in range(4,25+1):
+for i in range(4,9+1):
+    gen(1,i,"library_sol2.exe")
+    #pass
+for i in range(10,25+1):
     gen(1,i)
     #pass
 for i in range(1,2+1):
     gen(2,i,"library_sol1.exe")
     #pass
-for i in range(3,5+1):
+for i in range(3,3+1):
+    gen(2,i,"library_sol2.exe")
+    #pass
+for i in range(4,5+1):
     gen(2,i)
     #pass
