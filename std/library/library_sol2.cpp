@@ -4,7 +4,7 @@
 #include<cmath>
 using namespace std;
 //#define debug
-const int MAXN=5e4,MAXM=2e4,MAXC=2e5;
+const int MAXN=5e4,MAXM=5e4,MAXC=4e5+1;
 const long long MOD=998244353;
 //¿Î…¢ªØ
 int dcnt;

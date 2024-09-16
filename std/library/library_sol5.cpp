@@ -4,7 +4,7 @@
 #include<cmath>
 using namespace std;
 //#define debug
-const int MAXN=5e4,MAXM=2e4;
+const int MAXN=5e4,MAXM=5e4,MAXC=4e5+1;
 const int MIND=0,MAXD=1e9;
 const long long MOD=998244353;
 //基本
@@ -84,7 +84,7 @@ struct Book
 //特制数
 struct Num
 {
-	long long data;
+	int data;
 	int cnt0;
 	Num()
 	{
@@ -123,17 +123,17 @@ struct Num
 };
 Num operator *(Num a,Num b)
 {
-	return (Num){a.data*b.data%MOD,a.cnt0+b.cnt0};
+	return (Num){a.data*1ll*b.data%MOD,a.cnt0+b.cnt0};
 }
 Num operator /(Num a,Num b)
 {
-	return (Num){a.data*qpow(b.data,MOD-2)%MOD,a.cnt0-b.cnt0};
+	return (Num){a.data*1ll*qpow(b.data,MOD-2)%MOD,a.cnt0-b.cnt0};
 }
 struct Tree
 {
 	int lc,rc;
 	Num lazy,val;
-}tree[20000000];
+}tree[30000000];
 int pcnt;
 int rt[250];
 void handle(int o,Num v)

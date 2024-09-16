@@ -1,7 +1,7 @@
 import sys
 pre=\
 '''type: default
-time: 5s
+time: 3500ms
 memory: 1024m
 filename: library
 checker_type: default

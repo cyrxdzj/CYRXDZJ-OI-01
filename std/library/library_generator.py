@@ -21,8 +21,8 @@ class Book:
         self.c=0
         self.d=self.p=[]
     def gen(self,cnt:int,difficulty_repeat:bool,difficulty_min:int,difficulty_max:int):
-        rest_p=100000
-        deno=100000
+        rest_p=max(1000000,cnt)
+        deno=rest_p
         self.c=cnt
         self.d=[]
         self.p=[]
@@ -41,6 +41,8 @@ class Book:
                 for i in range(1,cnt):
                     left=self.d[i-1]+1
                     right=difficulty_min+((difficulty_max-difficulty_min)*(i+1)//cnt)
+                    if left>right:
+                        print(left,right,cnt,i)
                     #print(i+1,cnt,difficulty_min,difficulty_max,left,right)
                     self.d.append(random.randint(left,right))
                 for i in range(max(1,cnt//5)):
@@ -50,12 +52,14 @@ class Book:
                     self.d[x]=self.d[y]
                     self.d[y]=t
         except Exception as e:
-            print(self.d)
+            #print(self.d)
             raise e
         for i in range(1,cnt+1):
             if i==cnt:
                 now_p=rest_p
             else:
+                if 1>rest_p-(cnt-i):
+                    print(rest_p,cnt,i)
                 now_p=random.randint(1,rest_p-(cnt-i))
             self.p.append(prob(now_p,deno))
             rest_p-=now_p
@@ -114,9 +118,12 @@ def gen(subid,ptid,target=""):
     elif (subid==1) and (ptid==3):
         n=50
         m=100
-    elif ((subid==1) and (4<=ptid and ptid<=25)) or ((subid==2) and (3<=ptid and ptid<=5)):
-        n=random.randint(20000+(ptid%2)*30000,50000)
-        m=random.randint(15000+(ptid%2)*5000, 20000)
+    elif ((subid==1) and (4<=ptid and ptid<=9)) or ((subid==2) and (3<=ptid and ptid<=3)):
+        n=50000
+        m=30000
+    elif ((subid==1) and (10<=ptid and ptid<=25)) or ((subid==2) and (4<=ptid and ptid<=5)):
+        n=50000
+        m=50000
     elif ((subid==2) and (ptid==1)):
         n=3
         m=6
@@ -145,7 +152,7 @@ def gen(subid,ptid,target=""):
     elif ((subid==1) and (10<=ptid<=11)):
         C=n+m2
     elif ((subid==1) and (12<=ptid and ptid<=25)) or (subid==2 and (4<=ptid and ptid<=5)):
-        C=random.randint(100000*((ptid%2)+1),200000)
+        C=400000
     elif (subid==2 and ptid==1):
         m1=5
         m2=1
@@ -170,9 +177,9 @@ def gen(subid,ptid,target=""):
     else:
         cs=gen_array(n+m2,C)
         for i in range(n+m2):
-            if cs[i]>difficulty_max:
+            if cs[i]>difficulty_max-difficulty_min+1:
                 C-=cs[i]
-                cs[i]=difficulty_max
+                cs[i]=difficulty_max-difficulty_min+1
                 C+=cs[i]
         #print(n,m2,len(cs))
     #print("Gen array done")
@@ -255,7 +262,8 @@ def gen(subid,ptid,target=""):
         os.system(target)
         with open("data/library_sub%02d_pt%02d.ans"%(subid,ptid),"w") as fobj:
             fobj.write(open("library.out").read())
-
+#gen(1,4,"library_sol2.exe")
+#exit(0)
 for i in range(1,3+1):
     gen(1,i,"library_sol1.exe")
     pass
@@ -274,4 +282,3 @@ for i in range(3,3+1):
 for i in range(4,5+1):
     gen(2,i,"library_sol3.exe")
     pass
-#gen(1,5)
