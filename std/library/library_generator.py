@@ -149,13 +149,13 @@ def gen(subid,ptid,target=""):
     elif (subid==2 and ptid==1):
         m1=5
         m2=1
-    if ((subid==1) and (ptid<=3)) or ((subid==2) and (ptid<=2)):
+    if ((subid==1) and (ptid<=5)) or ((subid==2) and (ptid<=2)):
         difficulty_max=10
     elif ((subid==1) and ((6<=ptid and ptid<=7) or (14<=ptid and ptid<=17))):
         difficulty_max=int(1e5)
     else:
         difficulty_max=int(1e9)
-    if ((subid==1) and (ptid in ([5,7,9]+list(range(15,17+1))+list(range(19,25+1))))):
+    if ((subid==1) and (ptid in ([7,9]+list(range(15,17+1))+list(range(19,25+1))))):
         difficulty_min=difficulty_max//random.randint(2,100)
     else:
         difficulty_min=1
@@ -176,7 +176,7 @@ def gen(subid,ptid,target=""):
                 C+=cs[i]
         #print(n,m2,len(cs))
     #print("Gen array done")
-    print("    n %d m %d difficulty_min %d difficulty_max %d difficulty_repeat %d"%(n,m,difficulty_min,difficulty_max,difficulty_repeat))
+    print("    n %d m %d m1 %d m2 %d difficulty_min %d difficulty_max %d difficulty_repeat %d"%(n,m,m1,m2,difficulty_min,difficulty_max,difficulty_repeat))
     books=[]
     l=[]
     r=[]
@@ -255,19 +255,20 @@ def gen(subid,ptid,target=""):
 
 for i in range(1,3+1):
     gen(1,i,"library_sol1.exe")
-    #pass
+    pass
 for i in range(4,9+1):
     gen(1,i,"library_sol2.exe")
-    #pass
+    pass
 for i in range(10,25+1):
     gen(1,i)
-    #pass
+    pass
 for i in range(1,2+1):
     gen(2,i,"library_sol1.exe")
-    #pass
+    pass
 for i in range(3,3+1):
     gen(2,i,"library_sol2.exe")
-    #pass
+    pass
 for i in range(4,5+1):
     gen(2,i)
-    #pass
+    pass
+#gen(1,5)

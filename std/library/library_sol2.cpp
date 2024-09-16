@@ -190,18 +190,22 @@ struct Qry
 }qry[MAXM+5];
 long long ans[MAXM+5];
 int L=1,R;
+#ifdef debug
+int opcnt;
+#endif
 void add_book(int id)
 {
 	#ifdef debug
-	printf("add_book %d\n",id);
+	opcnt++;
+	//printf("add_book %d\n",id);
 	#endif
 	int last=get_dataid(0);
 	long long nowsum=0;
 	for(pair<int,long>page:a[id].pages)
 	{
 		#ifdef debug
-		printf("%d %d %lld\n",last,page.first-1,nowsum);
-		fflush(stdout);
+		//printf("%d %d %lld\n",last,page.first-1,nowsum);
+		//fflush(stdout);
 		#endif
 		change(1,last,page.first-1,Num(nowsum));
 		nowsum=(nowsum+page.second)%MOD;
@@ -211,15 +215,16 @@ void add_book(int id)
 void del_book(int id)
 {
 	#ifdef debug
-	printf("del_book %d\n",id);
+	opcnt++;
+	//printf("del_book %d\n",id);
 	#endif
 	int last=get_dataid(0);
 	long long nowsum=0;
 	for(pair<int,long>page:a[id].pages)
 	{
 		#ifdef debug
-		printf("%d %d %lld\n",last,page.first-1,nowsum);
-		fflush(stdout);
+		//printf("%d %d %lld\n",last,page.first-1,nowsum);
+		//fflush(stdout);
 		#endif
 		change(1,last,page.first-1,Num(1)/Num(nowsum));
 		nowsum=(nowsum+page.second)%MOD;
@@ -229,9 +234,10 @@ void del_book(int id)
 int main()
 {
 	freopen("library.in","r",stdin);
+	#ifndef debug
 	freopen("library.out","w",stdout);
+	#endif
 	scanf("%d",&n);
-	BLOCK=sqrt(n);
 	add_data(0);
 	for(int i=1;i<=n;i++)
 	{
@@ -245,9 +251,11 @@ int main()
 	#ifdef debug
 	for(int i=1;i<=dcnt;i++)
 	{
-		printf("%lld ",data[i]);
+		//printf("%lld ",data[i]);
 	}
-	printf("\n");
+	//printf("\n");
+	printf("dcnt %d\n",dcnt);
+	//return 0;
 	#endif
 	build(1,1,dcnt);
 	for(int i=1;i<=n;i++)
@@ -258,6 +266,7 @@ int main()
 		}
 	}
 	scanf("%d",&m);
+	BLOCK=n/sqrt(m);
 	for(int i=1;i<=m;i++)
 	{
 		int op;
@@ -268,7 +277,14 @@ int main()
 	sort(qry+1,qry+1+m,[](Qry qa,Qry qb){
 		if((qa.l/BLOCK)==(qb.l/BLOCK))
 		{
-			return qa.r<qb.r;
+			if((qa.l/BLOCK)&1)
+			{
+				return qa.r>qb.r;
+			}
+			else
+			{
+				return qa.r<qb.r;
+			}
 		}
 		return qa.l<qb.l;
 	});
@@ -276,7 +292,10 @@ int main()
 	{
 		int vid=upper_bound(data+1,data+1+dcnt,qry[qid].v)-data-1;
 		#ifdef debug
-		printf("query %d %d %d(%d)\n",qry[qid].l,qry[qid].r,vid,qry[qid].v);
+		if(qid%1000==0)
+		{
+			printf("qid %d query %d %d %d(%d)\n",qid,qry[qid].l,qry[qid].r,vid,qry[qid].v);
+		}
 		#endif
 		if(qry[qid].v>=data[dcnt])
 		{
@@ -309,4 +328,7 @@ int main()
 	{
 		printf("%lld\n",ans[i]);
 	}
+	#ifdef debug
+	printf("opcnt %d\n",opcnt);
+	#endif
 }
