@@ -3,7 +3,7 @@
 #include<vector>
 using namespace std;
 //#define debug
-const int MAXN=50;
+const int MAXN=5e4;
 const long long MOD=998244353;
 int n,m;
 struct Book
