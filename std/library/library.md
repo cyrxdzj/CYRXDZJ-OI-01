@@ -162,7 +162,7 @@
 | 样例4   | $\le5\times10^4$ | $\le5\times10^4$ | $\le4\times10^5$ | $\le1\times10^5$    | 符合测试点 14~17 的要求              |
 | 样例5   | $\le5\times10^4$ | $\le5\times10^4$ | $\le4\times10^5$ | $\le1\times10^9$    | 符合测试点 18~25 的要求              |
 
-对于所有测试点，都有 $1\le l\le r\le n\le5\times10^4$，$1\le m\le5\times10^4$，$n\le C\le2\times10^5$，$1\le v,d_{i,j},d_{x,j}\le1\times10^9$，$1\le p_{i,j},p_{x,j}<998244353$。
+对于所有测试点，都有 $1\le l\le r\le n\le5\times10^4$，$1\le m\le5\times10^4$，$n\le C\le4\times10^5$，$1\le v,d_{i,j},d_{x,j}\le1\times10^9$，$1\le p_{i,j},p_{x,j}<998244353$。
 
 保证所有概率确实存在。出题人的数据生成程序会先指定概率的分子与分母，再计算逆元，而不是直接指定逆元结果。
 
