@@ -17,6 +17,7 @@ class Book:
     c=0
     d=[]
     p=[]
+    min_d=10000000000
     def __init__(self):
         self.c=0
         self.d=self.p=[]
@@ -26,23 +27,35 @@ class Book:
         self.c=cnt
         self.d=[]
         self.p=[]
-        self.d.append(difficulty_min)
+        if difficulty_min>0:
+            self.d.append(difficulty_min)
+        elif not difficulty_repeat:
+            self.d.append(random.randint(1,difficulty_max-cnt+1))
+        else:
+            self.d.append(random.randint(1,difficulty_max))
         try:
             if difficulty_repeat:
                 for i in range(1,cnt):
-                    self.d.append(random.randint(difficulty_min,difficulty_max))
-                for i in range(2):
+                    self.d.append(random.randint(max(difficulty_min,1),difficulty_max))
+                for i in range(10):
                     x=random.randint(0,cnt-1)
                     y=random.randint(0,cnt-1)
                     t=self.d[x]
                     self.d[x]=self.d[y]
                     self.d[y]=t
             else:
+                if difficulty_max-self.d[0]+1<cnt:
+                    #print("will out",cnt,difficulty_max,self.d[0])
+                    self.c=cnt=difficulty_max-self.d[0]+1
                 for i in range(1,cnt):
-                    left=self.d[i-1]+1
-                    right=difficulty_min+((difficulty_max-difficulty_min)*(i+1)//cnt)
-                    if left>right:
+                    if difficulty_max-self.d[i-1]<=cnt-i:
+                        left=right=self.d[i-1]+1
+                    else:
+                        left=self.d[i-1]+1
+                        right=max(left,difficulty_min+((difficulty_max-difficulty_min)*(i+1)//cnt))
+                    if right>difficulty_max:
                         print(left,right,cnt,i)
+                        raise Exception("Out of limit")
                     #print(i+1,cnt,difficulty_min,difficulty_max,left,right)
                     self.d.append(random.randint(left,right))
                 for i in range(max(1,cnt//5)):
@@ -51,6 +64,8 @@ class Book:
                     t=self.d[x]
                     self.d[x]=self.d[y]
                     self.d[y]=t
+            for i in range(0,cnt):
+                self.min_d=min(self.min_d,self.d[i])
         except Exception as e:
             #print(self.d)
             raise e
@@ -133,7 +148,7 @@ def gen(subid,ptid,target=""):
         m1=5
         m2=1
     else:
-        m1=random.randint(1,m//1.5)
+        m1=random.randint(1,int(m//1.5))
     m2=m-m1
     if not (subid==2 and ptid==1):
         for i in range(m1):
@@ -162,24 +177,32 @@ def gen(subid,ptid,target=""):
         difficulty_max=int(1e5)
     else:
         difficulty_max=int(1e9)
-    if ((subid==1) and (ptid in ([7,9]+list(range(15,17+1))+list(range(19,25+1))))):
-        difficulty_min=difficulty_max//random.randint(2,100)
+    if ((subid==1) and (ptid in ([7,9]+list(range(15,17+1))+list(range(19,25+1))))) or ((subid==2) and (ptid in [2,4,5])):
+        difficulty_min=0
     else:
         difficulty_min=1
     if ((subid==1) and (ptid in ([9]+list(range(16,17+1))+list(range(19,25+1))))):
         difficulty_repeat=True
     if (subid==2 and ptid==1):
         pass
-    elif (subid==1 and (4<=ptid<=9)) or (subid==2 and ptid==3):
+    elif (subid==1 and (4<=ptid and ptid<=9)) or (subid==2 and ptid==3):
         cs=[]
         for i in range(n):
             cs.append(2)
+    elif (subid==1 and (12<=ptid and ptid<=13)):
+        mx_pt=random.randint(1,n)
+        cs=[]
+        for i in range(1,n+m2+1):
+            if i==mx_pt:
+                cs.append(C-n-m2+1)
+            else:
+                cs.append(1)
     else:
         cs=gen_array(n+m2,C)
         for i in range(n+m2):
-            if cs[i]>difficulty_max-difficulty_min+1:
+            if cs[i]>difficulty_max-max(difficulty_min,1)+1 and not difficulty_repeat:
                 C-=cs[i]
-                cs[i]=difficulty_max-difficulty_min+1
+                cs[i]=difficulty_max-max(difficulty_min,1)-difficulty_min+1
                 C+=cs[i]
         #print(n,m2,len(cs))
     #print("Gen array done")
@@ -213,24 +236,31 @@ def gen(subid,ptid,target=""):
         change_books[0].d=[1,2,4]
         change_books[0].p=[prob(1,9),prob(5,9),prob(3,9)]
     else:
+        raw_book_min_d=difficulty_max+5
+        changed_book_min_d=difficulty_max+5
+        changed_book_min_d_id=0
         for i in range(n):
             book=Book()
+            book.gen(cs[0],difficulty_repeat,int(difficulty_max//2.5) if difficulty_min==0 else difficulty_min,difficulty_max)
+            raw_book_min_d=min(raw_book_min_d,book.min_d)
             if (i+1)%10000==0:
-                print("    book %d cs %d"%(i+1,cs[0]))
-            book.gen(cs[0],difficulty_repeat,difficulty_min,difficulty_max)
+                print("    book %d cs %d min_d %d"%(i+1,cs[0],book.min_d))
             del(cs[0])
             books.append(book)
         for i in range(m1):
-            l.append(random.randint(1,max(1,n*(i+1)//m1)))
+            if subid==1 and (12<=ptid and ptid<=13) and random.randint(1,3)<=2:
+                l.append(mx_pt)
+            else:
+                l.append(random.randint(1,max(1,n*(i+1)//m1)))
             if subid==1 and (12<=ptid and ptid<=13):
                 r.append(l[i])
             else:
                 r.append(random.randint(max(l[i],n-n*(i+1)//m1),n))
-            v.append(random.randint(difficulty_min,difficulty_max))
+            v.append(random.randint(max(difficulty_min,1),difficulty_max))
         for i in range(m2):
             x.append(random.randint(1,n))
             book=Book()
-            book.gen(cs[0],difficulty_repeat,difficulty_min,difficulty_max)
+            book.gen(cs[0],difficulty_repeat,difficulty_min,raw_book_min_d if difficulty_min==0 else difficulty_max)
             del(cs[0])
             change_books.append(book)
         assert len(cs)==0
@@ -240,8 +270,17 @@ def gen(subid,ptid,target=""):
         for i in range(n):
             books[i].write(fobj)
         fobj.write("%d\n"%m)
+        hack0_times=0
         for i in range(m):
             if ops[i]==1:
+                if not(subid==2 and ptid==1):
+                    if difficulty_min==0 and changed_book_min_d<raw_book_min_d and changed_book_min_d_id!=0 and (hack0_times<=5 or random.randint(1,20)==1):
+                        l[0]=max(1,changed_book_min_d_id-n//100)
+                        r[0]=min(n,changed_book_min_d_id+n//100)
+                        v[0]=changed_book_min_d
+                        hack0_times+=1
+                        if hack0_times %100==0:
+                            print("Hack 0 %d times"%hack0_times)
                 fobj.write("1 %d %d %d\n"%(l[0],r[0],v[0]))
                 del(l[0])
                 del(r[0])
@@ -249,6 +288,12 @@ def gen(subid,ptid,target=""):
             elif ops[i]==2:
                 fobj.write("2 %d\n"%(x[0]))
                 change_books[0].write(fobj)
+                if (not(subid==2 and ptid==1)):
+                    if difficulty_min==0 and len(change_books)%10000==0:
+                        print(change_books[0].min_d)
+                    if changed_book_min_d>change_books[0].min_d:
+                        changed_book_min_d=change_books[0].min_d
+                        changed_book_min_d_id=x[0]
                 del x[0]
                 del change_books[0]
     assert len(l)==0
@@ -256,6 +301,8 @@ def gen(subid,ptid,target=""):
     assert len(v)==0
     assert len(x)==0
     assert len(change_books)==0
+    if not (subid==2 and ptid==1):
+        print("Raw book min d",raw_book_min_d,"Change book min_d",changed_book_min_d)
     if subid==2:
         with open("../../down/library/library%d.in"%ptid,"w") as fobj:
             fobj.write(open("data/library_sub%02d_pt%02d.in"%(subid,ptid),"r").read())
