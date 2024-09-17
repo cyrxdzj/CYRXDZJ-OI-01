@@ -256,12 +256,18 @@ def gen(subid,ptid,target=""):
     assert len(v)==0
     assert len(x)==0
     assert len(change_books)==0
+    if subid==2:
+        with open("../../down/library/library%d.in"%ptid,"w") as fobj:
+            fobj.write(open("data/library_sub%02d_pt%02d.in"%(subid,ptid),"r").read())
     if target!="":
         with open("library.in","w") as fobj:
             fobj.write(open("data/library_sub%02d_pt%02d.in"%(subid,ptid),"r").read())
         os.system(target)
         with open("data/library_sub%02d_pt%02d.ans"%(subid,ptid),"w") as fobj:
             fobj.write(open("library.out").read())
+        if subid==2:
+            with open("../../down/library/library%d.ans"%ptid,"w") as fobj:
+                fobj.write(open("data/library_sub%02d_pt%02d.ans"%(subid,ptid),"r").read())
 #gen(1,4,"library_sol2.exe")
 #exit(0)
 for i in range(1,3+1):
