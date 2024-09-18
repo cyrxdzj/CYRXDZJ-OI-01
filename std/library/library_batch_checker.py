@@ -12,9 +12,6 @@ def check(subid,ptid,target):
     print("%4dms"%(int(round((ed-st)*1000,0))),end=' ')
     sys.stdout.flush()
     os.system("library_testlib_checker.exe library.in library.out data/library_sub%02d_pt%02d.ans"%(subid,ptid))
-for i in range(1,25+1):
-    #check(1,i,"library_sol4.exe")
-    pass
 for i in range(1,3+1):
     check(1,i,"library_sol1.exe")
     pass
@@ -32,3 +29,9 @@ for i in range(3,3+1):
 for i in range(1,5+1):
     check(2,i,"library_sol3.exe")
     check(2,i,"library_sol5.exe")
+for i in range(1,25+1):
+    #check(1,i,"library_sol4.exe")
+    pass
+for i in range(1,5+1):
+    #check(2,i,"library_sol4.exe")
+    pass

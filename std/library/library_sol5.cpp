@@ -59,51 +59,47 @@ long long qpow(long long a,long long b)
 	return res;
 } 
 int n,m;
-int id2bid[MAXN+5];
+int id2bid[MAXN+5];	//这个点所在块的编号？以减少除法使用。 
 struct Book
 {
 	int c;
-	vector<pair<int,long long>>pages;
-	vector<pair<int,long long>>pfx;
+	vector<pair<int,long long>>pages;	//输入数据 
+	vector<pair<int,long long>>pfx;		//前缀和，意义为，达到第一个数的难度，看懂这本书的概率为第二个数 
 	void read_book()
 	{
-		pages.clear();
-		//scanf("%d",&c);
-		read(c);
+		vector<pair<int,long long>>repeat_pages;	//可能重复难度的书页 
+		read(c);		//输入页数 
 		for(int i=0;i<c;i++)
 		{
 			int d;
-			//scanf("%d",&d);
-			read(d);
-			pages.push_back(make_pair(d,0));
+			read(d);	//输入各页码难度 
+			repeat_pages.push_back(make_pair(d,0));
 		}
 		for(int i=0;i<c;i++)
 		{
-			//scanf("%lld",&pages[i].second);
-			read(pages[i].second);
+			read(repeat_pages[i].second);	//输入各页码概率 
 		}
-		sort(pages.begin(),pages.end());
-		vector<pair<int,long long>>unique_pages;
-		unique_pages.clear();
-		for(auto page:pages)
+		sort(repeat_pages.begin(),repeat_pages.end());	//排序以准备去重 
+		pages.clear();
+		pages.reserve(c);	//不加这句可能会未知原因地 Segment Fault，或许申请空间太多次会出错 
+		for(auto page:repeat_pages)	//去重 
 		{
-			if(unique_pages.empty())
+			if(pages.empty())
 			{
-				unique_pages.push_back(page);
+				pages.push_back(page);
 			}
-			else if(unique_pages[int(unique_pages.size())-1].first==page.first)
+			else if(pages[int(pages.size())-1].first==page.first)
 			{
-				unique_pages[int(unique_pages.size())-1].second=(unique_pages[int(unique_pages.size())-1].second+page.second)%MOD;
+				pages[int(pages.size())-1].second=(pages[int(pages.size())-1].second+page.second)%MOD;
 			}
 			else
 			{
-				unique_pages.push_back(page);
+				pages.push_back(page);
 			}
 		}
-		swap(pages,unique_pages);
-		long long nowsum=0;
+		long long nowsum=0;	//计算前缀和 
 		pfx.clear();
-		pfx.push_back(make_pair(0,0ll));
+		pfx.push_back(make_pair(0,0ll));	//这里加个0，这样查询时就不用特判，降低代码复杂度 
 		for(int i=0;i<(int)pages.size();i++)
 		{
 			nowsum=(nowsum+pages[i].second)%MOD;
@@ -113,7 +109,7 @@ struct Book
 			}
 		}
 	}
-	long long get_probability(int x)
+	long long get_probability(int x)	//当头脑清醒度为 x 时，有多大的概率看懂这本书？ 
 	{
 		vector<pair<int,long long>>::iterator it=upper_bound(pfx.begin(),pfx.end(),make_pair(x,(long long)0x3fffffffffff));
 		it--;
@@ -170,19 +166,19 @@ Num operator /(Num a,Num b)
 }
 struct Tree
 {
-	int lc,rc;
-	Num lazy,val;
-}tree[30000000];
-int pcnt;
-int rt[250];
-void handle(int o,Num v)
+	int lc,rc;		//左右儿子 
+	Num lazy,val;	//当这个节点没有左右儿子时，val 即为这个区间下所有头脑清醒度对应的概率；若有左右儿子，则 val 无意义。 
+}tree[30000000];	//这个大小很难定，定太高爆空间，定太低会 RE 
+int pcnt;	//动态开点的点数 
+int rt[250];	//每一块对应哪棵线段树 
+void handle(int o,Num v)	//本节点修改操作统一封装为handle 
 {
 	tree[o].lazy=(tree[o].lazy*v);
 	tree[o].val=(tree[o].val*v);
 }
-int new_node(int o,int tl,int tr)
+int new_node(int o,int tl,int tr)//新建一个节点。这个函数用于减少之后代码中的判断。 
 {
-	if(o)
+	if(o)	//已有节点 
 	{
 		return o;
 	}
@@ -192,7 +188,7 @@ int new_node(int o,int tl,int tr)
 	tree[o].val=Num();
 	return o;
 }
-void pushdown(int o,int tl,int tr)
+void pushdown(int o,int tl,int tr)	//下传标记函数 
 {
 	if(tl==tr)
 	{
@@ -210,17 +206,6 @@ void pushdown(int o,int tl,int tr)
 }
 void change(int o,int l,int r,Num v,int tl,int tr)
 {
-	if(l>r)
-	{
-		printf("ERROR\n");
-		fflush(stdout);
-	}
-	#ifdef debug
-	if(o<=id2bid[n])
-	{
-		printf("o %d l %d r %d tl %d tr %d v %lld %d\n",o,l,r,tl,tr,v.data,v.cnt0);
-	}
-	#endif
 	if(tl==l&&tr==r)
 	{
 		handle(o,v);
@@ -244,7 +229,7 @@ void change(int o,int l,int r,Num v,int tl,int tr)
 }
 Num query(int o,int x,int tl,int tr)
 {
-	if(tl==tr||(tree[o].lc==0&&tree[o].rc==0))
+	if(tl==tr||(tree[o].lc==0&&tree[o].rc==0))//已到最深的子节点 
 	{
 		return tree[o].val;
 	}
@@ -259,10 +244,10 @@ Num query(int o,int x,int tl,int tr)
 		return query(tree[o].rc,x,mid+1,tr);
 	}
 }
-int BLOCK;
-void add_book(int id)
+int BLOCK;	//块长 
+void add_book(int id)	//将一本书加入线段树中 
 {
-	int bid=id2bid[id];
+	int bid=id2bid[id];	//这本书所在的分块 
 	int last=MIND;
 	long long nowsum=0;
 	for(pair<int,long>page:a[id].pages)
@@ -271,8 +256,9 @@ void add_book(int id)
 		nowsum=(nowsum+page.second)%MOD;
 		last=page.first;
 	}
+	//最后不用考虑 last，因为 nowsum=1 时，任何数乘 1 都为 1，不必修改 
 }
-void del_book(int id)
+void del_book(int id)	//让一本书离开线段树，几乎是上面的镜像 
 {
 	int bid=id2bid[id];
 	int last=MIND;
@@ -297,7 +283,7 @@ int main()
 	{
 		id2bid[i]=1;
 	}
-	for(int i=BLOCK+1;i<=n;i++)
+	for(int i=BLOCK+1;i<=n;i++)	//计算id2bid的算法，无需使用除法 
 	{
 		id2bid[i]=id2bid[i-BLOCK]+1;
 	}
@@ -313,8 +299,6 @@ int main()
 	{
 		add_book(i);
 	}
-	//return 0;
-	//scanf("%d",&m);
 	read(m);
 	for(int qid=1;qid<=m;qid++)
 	{
@@ -323,7 +307,6 @@ int main()
 		if(op==2)
 		{
 			int x;
-			//scanf("%d",&x);
 			read(x);
 			del_book(x);
 			a[x].read_book();
@@ -332,20 +315,19 @@ int main()
 		else
 		{
 			int l,r,v;
-			//scanf("%d%d%d",&l,&r,&v);
 			read(l);read(r);read(v);
 			Num res=Num();
-			int lbid=(l-1)/BLOCK+1;
-			int rbid=(r-1)/BLOCK+1;
+			int lbid=id2bid[l];
+			int rbid=id2bid[r];
 			if(lbid==rbid)
 			{
-				if((lbid-1)*BLOCK+1==l&&min(rbid*BLOCK,n)==r)
+				if((lbid-1)*BLOCK+1==l&&min(rbid*BLOCK,n)==r)	//l 到 r 恰好在一个整块中 
 				{
 					res=query(rt[lbid],v,MIND,MAXD);
 				}
 				else
 				{
-					for(int i=l;i<=r;i++)
+					for(int i=l;i<=r;i++)	//散块 
 					{
 						res=res*Num(a[i].get_probability(v));
 					}
@@ -353,7 +335,7 @@ int main()
 			}
 			else
 			{
-				if((lbid-1)*BLOCK+1==l)
+				if((lbid-1)*BLOCK+1==l)	//l 恰好在整块中 
 				{
 					res=res*query(rt[lbid],v,MIND,MAXD);
 				}
@@ -364,20 +346,25 @@ int main()
 						res=res*Num(a[i].get_probability(v));
 					}
 				}
-				for(int i=(rbid-1)*BLOCK+1;i<=r;i++)
+				if(min(rbid*BLOCK,n)==r)	//r 恰好在整块中 
 				{
-					res=res*Num(a[i].get_probability(v));
+					res=res*query(rt[rbid],v,MIND,MAXD);
 				}
-				for(int i=lbid+1;i<=rbid-1;i++)
+				else
+				{
+					for(int i=(rbid-1)*BLOCK+1;i<=r;i++)
+					{
+						res=res*Num(a[i].get_probability(v));
+					}
+				}
+				for(int i=lbid+1;i<=rbid-1;i++)	//计算中间的整块 
 				{
 					res=res*query(rt[i],v,MIND,MAXD);
 				}
 			}
-			//printf("%lld\n",(long long)res);
 			write((long long)res);
 			putchar('\n');
 		}
 	}
-	//printf("pcnt %d\n",pcnt);
 	return 0; 
 }

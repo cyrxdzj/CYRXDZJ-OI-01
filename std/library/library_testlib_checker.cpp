@@ -2,10 +2,66 @@
 
 using namespace std;
 
+const int MAXN=5e4,MAXC=4e5;
+int n,m,csum;
+void check_input()
+{
+	n=inf.readInt(1,MAXN);
+	for(int i=1;i<=n;i++)
+	{
+		int c=inf.readInt(1,MAXC);
+		csum+=c;
+		if(csum>MAXC)
+		{
+			quitf(_fail,"C > %d",MAXC);
+		}
+		for(int j=1;j<=c;j++)
+		{
+			int d=inf.readInt(1,1e9);
+		}
+		for(int j=1;j<=c;j++)
+		{
+			int p=inf.readInt(1,998244353-1);
+		}
+	}
+	m=inf.readInt(1,MAXN);
+	while(m--)
+	{
+		int op=inf.readInt(1,2);
+		if(op==1)
+		{
+			int l,r,v;
+			l=inf.readInt(1,n);
+			r=inf.readInt(l,n);
+			v=inf.readInt(1,1e9);
+		}
+		else
+		{
+			int x=inf.readInt(1,n);
+			int c=inf.readInt(1,MAXC);
+			csum+=c;
+			if(csum>MAXC)
+			{
+				quitf(_fail,"C > %d",MAXC);
+			}
+			for(int j=1;j<=c;j++)
+			{
+				int d=inf.readInt(1,1e9);
+			}
+			for(int j=1;j<=c;j++)
+			{
+				int p=inf.readInt(1,998244353-1);
+			}
+		}
+	}
+}
+
 int main(int argc, char *argv[]) {
     setName("compare ordered sequences of signed int%d numbers", 8 * int(sizeof(long long)));
 
     registerTestlibCmd(argc, argv);
+    
+    check_input();
 
     int n = 0;
     string firstElems;
