@@ -138,6 +138,6 @@ int main()
 
 ### 版权信息
 
-题解：[邓子君](https://www.luogu.com.cn/user/387836)
+题解：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)
 
 在 [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.zh-hans) 协议下共享。

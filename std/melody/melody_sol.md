@@ -208,7 +208,7 @@ int main()
 
 ### 版权信息
 
-题解：[邓子君](https://www.luogu.com.cn/user/387836)
+题解：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)
 
 本题改编自广州市赛 2024 D1T1，是原题的加强版。
 
