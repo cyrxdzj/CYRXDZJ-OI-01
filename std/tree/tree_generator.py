@@ -26,7 +26,7 @@ def gen(subid,ptid,target=""):
         tree=Graph.tree(n)
     elif ptid==2:
         tree=Graph.chain(n)
-    elif ptid==3:
+    elif ptid==3 or ptid==7:
         tree=Graph.binary_tree(n)
     elif ptid==4:
         tree=Graph.tree(n,0.2,0.6)
@@ -93,11 +93,12 @@ for i in range(1,6+1):
     #pass
 
 for i in range(1,7+1):
-    gen(4,i,"")
-    pass
+    gen(4,i,"tree_sol4.exe")
+    #pass
 shutil.copy("data/tree_sub04_pt07.in","../../down/tree/tree2.in")
-#shutil.copy("data/tree_sub04_pt07.ans","../../down/tree/tree2.ans")
-for i in range(1,6+1):
-    #gen(5,i,"")
-    pass
-shutil.copy("data/tree_sub05_pt06.in","../../down/tree/tree3.in")
+shutil.copy("data/tree_sub04_pt07.ans","../../down/tree/tree2.ans")
+for i in range(1,7+1):
+    gen(5,i,"tree_sol4.exe")
+    #pass
+shutil.copy("data/tree_sub05_pt07.in","../../down/tree/tree3.in")
+shutil.copy("data/tree_sub05_pt07.ans","../../down/tree/tree3.ans")
