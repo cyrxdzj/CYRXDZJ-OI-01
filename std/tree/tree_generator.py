@@ -16,7 +16,7 @@ def gen(subid,ptid,target=""):
             n=5
         else:
             n=200
-    elif subid==2:
+    elif subid==2 or (subid==4 and ptid==7):
         n=random.randint(1100,1200)
     else:
         n=random.randint(90000,100000)
@@ -46,7 +46,7 @@ def gen(subid,ptid,target=""):
     c=random.randint(0,b_max)
     b.append(random.randint(0,b_max))
     for i in range(1,n):
-        if subid==3:
+        if subid==3 or (subid==4 and ptid==7):
             b.append(b[0])
         else:
             b.append(random.randint(0,b_max))
@@ -81,21 +81,23 @@ def gen(subid,ptid,target=""):
         with open("data/tree_sub%02d_pt%02d.ans"%(subid,ptid),"w") as fobj:
             fobj.write(open("tree.out").read())
 for i in range(1,3+1):
-    gen(1,i,"")
+    gen(1,i,"tree_sol1.exe")
     #pass
 shutil.copy("data/tree_sub01_pt01.in","../../down/tree/tree1.in")
+shutil.copy("data/tree_sub01_pt01.ans","../../down/tree/tree1.ans")
 for i in range(1,6+1):
-    gen(2,i,"")
+    gen(2,i,"tree_sol2.exe")
     #pass
-shutil.copy("data/tree_sub02_pt02.in","../../down/tree/tree2.in")
 for i in range(1,6+1):
-    gen(3,i,"")
+    gen(3,i,"tree_sol3.exe")
     #pass
-shutil.copy("data/tree_sub03_pt03.in","../../down/tree/tree3.in")
-for i in range(1,6+1):
+
+for i in range(1,7+1):
     gen(4,i,"")
-    #pass
+    pass
+shutil.copy("data/tree_sub04_pt07.in","../../down/tree/tree2.in")
+#shutil.copy("data/tree_sub04_pt07.ans","../../down/tree/tree2.ans")
 for i in range(1,6+1):
-    gen(5,i,"")
-    #pass
-shutil.copy("data/tree_sub05_pt06.in","../../down/tree/tree4.in")
+    #gen(5,i,"")
+    pass
+shutil.copy("data/tree_sub05_pt06.in","../../down/tree/tree3.in")

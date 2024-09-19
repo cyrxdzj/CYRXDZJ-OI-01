@@ -10,9 +10,11 @@ Miku 有一棵心愿树。这是一棵有根树，这棵树有 $n$  个节点，
 
 上述的 $n$，$a_i$，$b_i$，$c$ 均会在输入数据中给出。
 
-规定 $f(u,v)=|a_u-a_v|\times min(a_u,a_v)\times(b_u\oplus b_v\oplus c)$。
-
-对于每个节点 $i$，Miku 想请你计算：$g(i)=\sum_{u\in subtree(i),v\in subtree(i)}f(u,v)$
+定义 $f(u,v)=|a_u-a_v|\times min(a_u,a_v)\times(b_u\oplus b_v\oplus c)$，对于每个节点 $i$，Miku 想请你计算：
+$$
+g(i)=\sum_{u\in subtree(i),v\in subtree(i)}f(u,v)
+$$
+其中，$subtree(i)$ 表示以 $i$ 为根的子树的点集，当然包括 $i$ 自己。
 
 由于这个答案可能很大，请输出 $g(i)\mod998244353$。 
 
@@ -37,6 +39,37 @@ Miku 有一棵心愿树。这是一棵有根树，这棵树有 $n$  个节点，
 输出应有 $n$ 行，每行表示 $g(i)\mod998244353$。
 
 ### 样例
+
+#### 样例输入 #1
+
+```input1
+5
+1 2
+1 4
+2 5
+3 1
+11 16 4 15 2
+7 5 3 1 1
+3
+```
+
+#### 样例输出 #1
+
+```output1
+2456
+392
+0
+0
+0
+```
+
+#### 样例 #2
+
+请见 `tree2.in` 和 `tree2.ans`，该样例符合 Subtask 2,3,4 的数据范围与全部特殊性质。
+
+#### 样例 #3
+
+请见 `tree3.in` 和 `tree3.ans`，该样例符合 Subtask 5 的数据范围。
 
 ### 数据范围与提示
 
