@@ -83,11 +83,11 @@ $$
 
 | Subtask | 分值 | $n$              | 更多特殊性质    | 计分方式 |
 | ------- | ---- | ---------------- | --------------- | -------- |
-| 1       | 5    | $\le 200$        | 无              | 最小值   |
-| 2       | 10   | $\le1200$        | 无              | 最小值   |
-| 3       | 15   | $\le1\times10^5$ | 所有 $b_i$ 相等 | 总和     |
-| 4       | 15   | $\le1\times10^5$ | $u_i=i,v_i=i+1$ | 总和     |
-| 5       | 45   | $\le1\times10^5$ | 无              | 总和     |
+| 1       | 4    | $\le 200$        | 无              | 最小值   |
+| 2       | 12   | $\le1200$        | 无              | 最小值   |
+| 3       | 18   | $\le1\times10^5$ | 所有 $b_i$ 相等 | 总和     |
+| 4       | 18   | $\le1\times10^5$ | $u_i=i,v_i=i+1$ | 总和     |
+| 5       | 48   | $\le1\times10^5$ | 无              | 总和     |
 
 对于所有数据，保证有 $1\le n\le1\times10^5$，$1\le a_i\le10^9$，$0\le b_i,c\le2^6-1$。
 
@@ -97,7 +97,7 @@ $$
 
 题目：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)
 
-数据：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)
+数据：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)，Powered by [CYaRon](https://github.com/luogu-dev/cyaron)
 
 题面部分内容的版权持有方为 `SEGA Corporation`，`Colorful Palette Inc.`，`Crypton Media Future Inc.`等公司，仅以非商业目的使用。
 
