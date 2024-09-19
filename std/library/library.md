@@ -1,6 +1,6 @@
 ## 内心深处的图书馆
 
-![](./card_018_008_normal_compressed.jpg)
+![潜入我的内心深处](./card_018_008_normal_compressed.jpg)
 
 ### 题目描述
 
