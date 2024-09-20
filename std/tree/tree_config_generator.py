@@ -1,7 +1,7 @@
 import sys
 pre=\
 '''type: default
-time: 2500ms
+time: 2000ms
 memory: 512m
 filename: tree
 checker_type: default
