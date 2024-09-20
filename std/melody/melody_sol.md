@@ -1,6 +1,6 @@
-## 回响旋律 题解
+# 回响旋律 题解
 
-### Subtask 1&2
+## Subtask 1&2
 
 时间复杂度 $O(nm)$。
 
@@ -8,7 +8,7 @@
 
 本 Subtask 的标程为 `melody_sol1.cpp`。
 
-### Subtask 3
+## Subtask 3
 
 时间复杂度 $O(1)$。
 
@@ -30,7 +30,7 @@ $c_i$ 相等，那么我们可以认为是 $c_1$ 重复演奏了 $nm$ 次。
 
 本 Subtask 的标程为 `melody_sol2.cpp`。
 
-### Subtask 4
+## Subtask 4
 
 时间复杂度 $O(n+m)$。
 
@@ -49,7 +49,7 @@ $b$ 很容易发现，一次演奏结束时，$b$ 会加上 $c_i$ 的总和。
 
 本 Subtask 的标程为 `melody_sol3.cpp`。
 
-### Subtask 5-1
+## Subtask 5-1
 
 时间复杂度 $O(3^3\times(n+\log m))$，已足以通过本题。
 
@@ -150,7 +150,7 @@ int main()
 }
 ```
 
-### Subtask 5-2
+## Subtask 5-2
 
 时间复杂度 $O(n)$，比上一个做法有更优的**理论**复杂度。
 
@@ -206,7 +206,7 @@ int main()
 }
 ```
 
-### 版权信息
+## 版权信息
 
 题解：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)
 
