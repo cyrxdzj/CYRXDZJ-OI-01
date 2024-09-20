@@ -2,6 +2,42 @@
 #include<algorithm>
 using namespace std;
 //#define debug
+//FastIO
+template<typename T>
+void read(T &x)
+{
+	x=0;
+	int f=1;
+	char c=getchar();
+	while(c<'0'||c>'9')
+	{
+		if(c=='-')
+		{
+			f*=-1;
+		}
+		c=getchar();
+	}
+	while(c>='0'&&c<='9')
+	{
+		x=(x<<1)+(x<<3)+c-'0';
+		c=getchar();
+	}
+	x*=f;
+}
+template<typename T>
+void write(T x)
+{
+	if(x<0)
+	{
+		putchar('-');
+		x=-x;
+	}
+	if(x>=10)
+	{
+		write(x/10);
+	}
+	putchar('0'+(x%10));
+}
 const int MAXN=1e5,MAXF=18;
 const int MAXBIT=6;
 const long long MOD=998244353;
@@ -196,16 +232,19 @@ int main()
 	#ifndef debug
 	freopen("tree.out","w",stdout);
 	#endif
-	scanf("%d",&n);
+	//scanf("%d",&n);
+	read(n);
 	for(int i=1,u,v;i<n;i++)
 	{
-		scanf("%d%d",&u,&v);
+		//scanf("%d%d",&u,&v);
+		read(u);read(v);
 		add_edge(u,v);
 		add_edge(v,u);
 	}
 	for(int i=1;i<=n;i++)
 	{
-		scanf("%d",&a[i]);
+		//scanf("%d",&a[i]);
+		read(a[i]);
 		add_data(a[i]);
 	}
 	init_data();
@@ -215,9 +254,11 @@ int main()
 	}
 	for(int i=1;i<=n;i++)
 	{
-		scanf("%d",&b[i]);
+		//scanf("%d",&b[i]);
+		read(b[i]);
 	}
-	scanf("%d",&c);
+	//scanf("%d",&c);
+	read(c);
 	pre(1,0);
 	#ifdef debug
 	for(int i=1;i<=n;i++)
@@ -235,22 +276,13 @@ int main()
 		}
 		printf(" %d\n",getbit(c,nowbid));
 		#endif
-		dfs(1,0,true);
+		dfs(1,0,false);
 		nowans=0;
 		for(int i=0;i<=n;i++)
 		{
 			tree[0][i]=Data();
 			tree[1][i]=Data();
 		}
-		/*for(int i=1;i<=n;i++)
-		{
-			printf("%lld",(ans[i]*2ll*c)%MOD);
-			if(i<n)
-			{
-				printf("\n");
-			}
-		}
-		return 0;*/
 	}
 	for(int i=1;i<=n;i++)
 	{
@@ -259,6 +291,9 @@ int main()
 		{
 			anssum=(anssum+(ans[j][i]*(1ll<<j)%MOD))%MOD;
 		}
-		printf("%lld\n",anssum*2%MOD);
+		//printf("%lld\n",anssum*2%MOD);
+		write(anssum*2%MOD);
+		putchar('\n');
 	}
+	return 0;
 }
