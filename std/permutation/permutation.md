@@ -100,4 +100,6 @@ checker.exe <input-file> <output-file> <answer-file>
 
 数据：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)
 
+题面部分内容的版权持有方为 `SEGA Corporation`，`Colorful Palette Inc.`，`Crypton Media Future Inc.`等公司，仅以非商业目的使用。
+
 在 [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.zh-hans) 协议下共享。
