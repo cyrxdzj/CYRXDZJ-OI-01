@@ -38,8 +38,8 @@ void write(T x)
 	}
 	putchar('0'+(x%10));
 }
-const int MAXN=1e5,MAXF=18;
-const int MAXBIT=6;
+const int MAXN=1e5;
+const int MAXBIT=6;	//最多 6 位 
 const long long MOD=998244353;
 //离散化
 int dcnt;
@@ -57,15 +57,18 @@ int get_dataid(long long x)
 {
 	return lower_bound(data+1,data+1+dcnt,x)-data;
 }
+//基本内容 
 int n;
 int a[MAXN+5];
 int b[MAXN+5],c;
-long long ans[MAXBIT][MAXN+5];
+long long ans[MAXBIT][MAXN+5];	//分开每一位存储 
+int nowbid;	//当前在枚举第几位？ 
+long long nowans;	//当前的贡献总和，需要注意它和字面意思的答案不是一个意思 
 //树状数组
 struct Data
 {
 	int cnt;
-	long long sum,sum2;
+	long long sum,sum2;	//sum2 即为平方和 
 	Data()
 	{
 		cnt=0;
@@ -78,8 +81,8 @@ struct Data
 		sum=data[id]*c%MOD;
 		sum2=data[id]*data[id]%MOD*c%MOD;
 	}
-}tree[2][MAXN+5];
-Data operator +(Data a,Data b)
+}tree[2][MAXN+5];	//设置两棵树状数组 
+Data operator +(Data a,Data b)	//重载运算符以方便后续编写代码 
 {
 	Data res;
 	res.cnt=a.cnt+b.cnt;
@@ -99,7 +102,7 @@ int lowbit(int x)
 {
 	return x&-x;
 }
-void change(int tid,int x,Data val)
+void change(int tid,int x,Data val)	//tid 为访问的树状数组编号 
 {
 	while(x<=dcnt)
 	{
@@ -117,7 +120,7 @@ Data query(int tid,int x)
 	}
 	return res;
 }
-int getbit(int x,int pos)
+int getbit(int x,int pos)	//获取 x 的 pos 位内容 
 {
 	return (x>>pos)&1;
 }
@@ -128,6 +131,27 @@ int setbit(int x,int pos,int v)
 		x^=(1<<pos);
 	}
 	return x;
+}
+void add(int u,int val)	//加入/删除 a[u]，val=1 代表加入，-1代表删除 
+{
+	int my=getbit(b[u],nowbid);	//b[u] 在第 nowbid 位上的值 
+	int to=my^getbit(c,nowbid)^1;	//只有 b[v] 在第 nowbid 位上值为 to 时，才能和 b[u] 产生贡献 
+	Data dv=Data(a[u],val);	//构造加入/删除的 Data 
+	Data lower=query(to,a[u]-1),upper=query(to,dcnt)-query(to,a[u]);	//lower 代表小于 a[u] 的，upper 代表大于 a[v] 的 
+	long long diff=0;	//diff 是贡献的变化量，升高还是减少取决于 val 
+	diff=(diff+(data[a[u]]*lower.sum%MOD))%MOD;
+	diff=(diff+(upper.sum*data[a[u]]%MOD))%MOD;
+	diff=(diff-lower.sum2)%MOD;
+	diff=(diff-(data[a[u]]*data[a[u]]%MOD*upper.cnt%MOD))%MOD;
+	diff=(diff%MOD+MOD)%MOD;
+	nowans=(nowans+val*diff+MOD)%MOD;
+	change(my,a[u],dv);	//执行加入/删除 
+	#ifdef debug
+	printf("add %d %d v %d %lld diff %lld\n",u,val,a[u],data[a[u]],diff);
+	printf("my %d to %d\n",my,to);
+	printf("lower cnt %d sum %lld\n",lower.cnt,lower.sum);
+	printf("upper cnt %d sum %lld\n",upper.cnt,upper.sum);
+	#endif
 }
 struct Edge
 {
@@ -141,9 +165,7 @@ void add_edge(int u,int v)
 	edge[++edge_cnt]=(Edge){v,head[u]};
 	head[u]=edge_cnt;
 }
-long long nowans=0;
-int nowbid;
-void pre(int u,int faa)
+void pre(int u,int faa)	//预处理重儿子 
 {
 	sz[u]=1;
 	for(int i=head[u];i;i=edge[i].next)
@@ -160,28 +182,7 @@ void pre(int u,int faa)
 		}
 	}
 }
-void add(int u,int val)
-{
-	int my=getbit(b[u],nowbid);//自己的位
-	int to=my^getbit(c,nowbid)^1;
-	Data dv=Data(a[u],val);
-	Data lower=query(to,a[u]-1),upper=query(to,dcnt)-query(to,a[u]);
-	long long diff=0;
-	diff=(diff+(data[a[u]]*lower.sum%MOD))%MOD;
-	diff=(diff+(upper.sum*data[a[u]]%MOD))%MOD;
-	diff=(diff-lower.sum2)%MOD;
-	diff=(diff-(data[a[u]]*data[a[u]]%MOD*upper.cnt%MOD))%MOD;
-	diff=(diff%MOD+MOD)%MOD;
-	nowans=(nowans+val*diff+MOD)%MOD;
-	change(my,a[u],dv);
-	#ifdef debug
-	printf("add %d %d v %d %lld diff %lld\n",u,val,a[u],data[a[u]],diff);
-	printf("my %d to %d\n",my,to);
-	printf("lower cnt %d sum %lld\n",lower.cnt,lower.sum);
-	printf("upper cnt %d sum %lld\n",upper.cnt,upper.sum);
-	#endif
-}
-void dfs_add(int u,int faa,int val)
+void dfs_add(int u,int faa,int val)	//递归加入/删除，不负责直接计算答案 
 {
 	add(u,val);
 	for(int i=head[u];i;i=edge[i].next)
@@ -193,7 +194,7 @@ void dfs_add(int u,int faa,int val)
 		}
 	}
 }
-void dfs(int u,int faa,bool keep)
+void dfs(int u,int faa,bool keep)	//计算答案，keep 代表是否保留贡献 
 {
 	if(hson[u])
 	{
@@ -225,7 +226,6 @@ void dfs(int u,int faa,bool keep)
 		dfs_add(u,faa,-1);
 	}
 }
-
 int main()
 {
 	freopen("tree.in","r",stdin);
@@ -277,22 +277,16 @@ int main()
 		printf(" %d\n",getbit(c,nowbid));
 		#endif
 		dfs(1,0,false);
-		nowans=0;
-		for(int i=0;i<=n;i++)
-		{
-			tree[0][i]=Data();
-			tree[1][i]=Data();
-		}
 	}
 	for(int i=1;i<=n;i++)
 	{
 		long long anssum=0;
 		for(int j=0;j<MAXBIT;j++)
 		{
-			anssum=(anssum+(ans[j][i]*(1ll<<j)%MOD))%MOD;
+			anssum=(anssum+(ans[j][i]*(1ll<<j)%MOD))%MOD;	//计算每一位的总和 
 		}
 		//printf("%lld\n",anssum*2%MOD);
-		write(anssum*2%MOD);
+		write(anssum*2%MOD);	//别忘了乘 2 
 		putchar('\n');
 	}
 	return 0;
