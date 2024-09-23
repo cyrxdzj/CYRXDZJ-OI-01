@@ -1,3 +1,4 @@
 *.exe
 std/*/*.in
 std/*/*.out
+*.zip
