@@ -89,7 +89,13 @@ checker.exe <input-file> <output-file> <answer-file>
 或：
 
 ```bash
-checker <input-file> <output-file> <answer-file>
+./checker <input-file> <output-file> <answer-file>
+```
+
+对于 Linux 平台，在必要情况下，可以使用此命令为 `checker` 赋予可执行权限：
+
+```bash
+chmod +x checker
 ```
 
 ## 数据范围与提示
