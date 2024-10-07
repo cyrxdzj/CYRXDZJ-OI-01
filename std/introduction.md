@@ -1,6 +1,6 @@
 # CYRXDZJ-OI-01
 
-<center>2024-10-11 08:00~12:00(GMT+8)</center><center>by cyrxdzj</center>
+<center>2024-10-16 08:00~12:00(GMT+8)</center><center>by cyrxdzj</center>
 
 大家好。本场比赛是由[邓子君](https://www.luogu.com.cn/user/387836)命题的 CSP-S 模拟赛。
 
