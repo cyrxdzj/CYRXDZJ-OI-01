@@ -1,6 +1,7 @@
 import random
 import math
 import os
+import shutil
 seed=[15326548,132312,235697,2035689,1235684]
 def swap(x,y):
     return [y,x]
@@ -39,7 +40,7 @@ def gen(subid,ptid,target=""):
         m=random.randint(200000000000*ptid,1000000000000)
     if subid>=4:
         for i in range(n):
-            c.append(random.randint(1,100000000))
+            c.append(random.randint(1,1000000000))
     with open("data/melody_sub%02d_pt%02d.in"%(subid,ptid),"w") as fobj:
         fobj.write("%d %d %d %d\n"%(n,m,a,b))
         for i in range(n):
@@ -56,15 +57,23 @@ def gen(subid,ptid,target=""):
 for i in range(1,5+1):
     gen(1,i,"melody_sol4.exe")
     #pass
+shutil.copy("data/melody_sub01_pt01.in","../../down/melody/melody1.in")
+shutil.copy("data/melody_sub01_pt01.ans","../../down/melody/melody1.ans")
+shutil.copy("data/melody_sub01_pt05.in","../../down/melody/melody2.in")
+shutil.copy("data/melody_sub01_pt05.ans","../../down/melody/melody2.ans")
 for i in range(1,5+1):
     gen(2,i,"melody_sol4.exe")
     #pass
 for i in range(1,5+1):
     gen(3,i,"melody_sol4.exe")
     #pass
+shutil.copy("data/melody_sub03_pt01.in","../../down/melody/melody3.in")
+shutil.copy("data/melody_sub03_pt01.ans","../../down/melody/melody3.ans")
 for i in range(1,5+1):
     gen(4,i,"melody_sol4.exe")
     #pass
 for i in range(1,5+1):
     gen(5,i,"melody_sol4.exe")
     #pass
+shutil.copy("data/melody_sub05_pt03.in","../../down/melody/melody4.in")
+shutil.copy("data/melody_sub05_pt03.ans","../../down/melody/melody4.ans")
