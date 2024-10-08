@@ -1,6 +1,4 @@
 #include "testlib.h"
-#include<string>
-#include<cstdio>
 using namespace std;
 
 int main(int argc, char* argv[]) {
