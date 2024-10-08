@@ -2,3 +2,4 @@
 std/*/*.in
 std/*/*.out
 *.zip
+__pycache__/
