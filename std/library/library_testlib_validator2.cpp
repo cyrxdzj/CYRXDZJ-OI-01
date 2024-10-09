@@ -1,7 +1,7 @@
 #include "testlib.h"
 
 using namespace std;
-//Õë¶Ô¸÷¸ö²âÊÔµãµÄ¸÷ÖÖÏÞÖÆ 
+//ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 const int MAXN=5e4,MAXM=3e4,MAXC=1e5,MAXCI=MAXC;
 const int MAXOP=1;
 const int MAXVAL=10;
@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
 		}
 		for(int j=1;j<=c;j++)
 		{
-			int d=inf.readInt(1,MAXVAL);
+			inf.readInt(1,MAXVAL);
 			if(j<c)
 			{
 				inf.readSpace();
@@ -57,17 +57,16 @@ int main(int argc, char* argv[]) {
 		inf.readSpace();
 		if(op==1)
 		{
-			int l,r,v;
-			l=inf.readInt(1,n);
+			int l=inf.readInt(1,n);
 			inf.readSpace();
-			r=inf.readInt(l,n);
+			inf.readInt(l,n);
 			inf.readSpace();
-			v=inf.readInt(1,MAXVAL);
+			inf.readInt(1,MAXVAL);
 			inf.readEoln();
 		}
 		else
 		{
-			int x=inf.readInt(1,n);
+			inf.readInt(1,n);
 			inf.readEoln();
 			int c=inf.readInt(1,MAXCI);
 			inf.readEoln();
@@ -78,7 +77,7 @@ int main(int argc, char* argv[]) {
 			}
 			for(int j=1;j<=c;j++)
 			{
-				int d=inf.readInt(1,MAXVAL);
+				inf.readInt(1,MAXVAL);
 				if(j<c)
 				{
 					inf.readSpace();

@@ -9,10 +9,9 @@ int main(int argc, char* argv[]) {
 	inf.readEoln();
 	for(int i=1;i<=m;i++)
 	{
-		int x,y;
-		x=inf.readInt(1,n);
+		inf.readInt(1,n);
 		inf.readSpace();
-		y=inf.readInt(1,n);
+		inf.readInt(1,n);
 		inf.readEoln();
 	}
 	inf.readEof();

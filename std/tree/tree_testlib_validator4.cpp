@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
 	}
 	for(int i=1;i<=n;i++)
 	{
-		int b=inf.readInt(0,MAXC,"b");
+		inf.readInt(0,MAXC,"b");
 		if(i<n)
 		{
 			inf.readSpace();

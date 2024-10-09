@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
 			inf.readEoln();
 		}
 	}
-	for(int i=1,lastb;i<=n;i++)
+	for(int i=1,lastb=0;i<=n;i++)
 	{
 		int b=inf.readInt(0,MAXC,"b");
 		quitif((i>1)&&(b!=lastb),_fail,"b_%d value %s is not equal to %s",i,vtos(b).c_str(),vtos(lastb).c_str());
