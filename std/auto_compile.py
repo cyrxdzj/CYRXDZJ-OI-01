@@ -23,7 +23,7 @@ if not clean_exe:
     for cpp in cpp_list:
         print("\033[1;34m"+cpp+"\033[0m")
         exe=cpp.replace(".cpp",".exe")
-        os.system("g++ {cpp} -fdiagnostics-color=always -lm -O2 -Wall -Wl,-stack=134217728 -std=c++14 -static -o {exe}".format(cpp=cpp,exe=exe))
+        os.system("g++ {cpp} -fdiagnostics-color=always -lm -O2 -Wno-unused-but-set-variable -Wno-unused-variable -Wall -Wl,-stack=134217728 -std=c++14 -static -o {exe}".format(cpp=cpp,exe=exe))
         #input("Enter to continue")
 else:
     for exe in exe_list:
