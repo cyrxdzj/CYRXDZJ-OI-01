@@ -3,7 +3,6 @@
 #include<queue>
 using namespace std;
 //#define debug 
-#define check
 const int MAXN=1e5,MAXM=5e5;
 int n,m;
 struct Edge
@@ -25,32 +24,16 @@ int main()
 {
 	freopen("permutation.in","r",stdin);
 	scanf("%d%d",&n,&m);
-	#ifdef check//°üÔÚcheck¶ÎÖĞµÄ´úÂëÍêÈ«¿ÉÒÔºöÂÔ ¡£ 
-	if(n<1||n>100000||m<0||m>400000)
-	{
-		printf("\033[31mData Check Failed.\n");
-		printf("n %d m %d\033[0m\n",n,m);
-		return 1;
-	}
-	#endif
 	for(int i=1;i<=m;i++)
 	{
 		int u,v;
 		scanf("%d%d",&u,&v);
-		#ifdef check
-		if(u<1||u>n||v<1||v>n)
-		{
-			printf("\033[31mData Check Failed.\n");
-			printf("Rule ID %d x %d y %d\033[0m\n",i,u,v);
-			return 1;
-		}
-		#endif
 		add_edge(u,v);
 		deg[v]++;
 	}
 	for(int i=1;i<=n;i++)
 	{
-		if(deg[i]==0)//·¢ÏÖÆğµã¡£ĞèÒª×¢Òâ¿ÉÄÜÓĞ¶à¸öÆğµã¡£ 
+		if(deg[i]==0)//å‘ç°èµ·ç‚¹ã€‚éœ€è¦æ³¨æ„å¯èƒ½æœ‰å¤šä¸ªèµ·ç‚¹ã€‚ 
 		{
 			q.push(i);
 		}
@@ -75,7 +58,7 @@ int main()
 	#endif
 	for(int i=1;i<=n;i++)
 	{
-		if(deg[i])//Èç¹ûµ½ÏÖÔÚ»¹ÓĞÈë¶È²»Îª0µÄ±ß£¬ËµÃ÷Í¼Àï³öÏÖÁË»·£¬Òò´ËÎŞ½â¡£ 
+		if(deg[i])//å¦‚æœåˆ°ç°åœ¨è¿˜æœ‰å…¥åº¦ä¸ä¸º0çš„è¾¹ï¼Œè¯´æ˜å›¾é‡Œå‡ºç°äº†ç¯ï¼Œå› æ­¤æ— è§£ã€‚ 
 		{
 			printf("-1");
 			return 0;
@@ -91,4 +74,3 @@ int main()
 	}
 	return 0;
 }
-

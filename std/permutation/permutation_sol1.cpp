@@ -2,7 +2,6 @@
 #include<algorithm>
 using namespace std;
 //#define debug 
-#define check
 int n,m;
 int a[15];
 int x[15],y[15];
@@ -56,25 +55,9 @@ int main()
 {
 	freopen("permutation.in","r",stdin);
 	scanf("%d%d",&n,&m);
-	#ifdef check
-	if(n<1||n>10||m<0||m>5)
-	{
-		printf("\033[31mData Check Failed.\n");
-		printf("n %d m %d\033[0m\n",n,m);
-		return 1;
-	}
-	#endif
 	for(int i=1;i<=m;i++)
 	{
 		scanf("%d%d",&x[i],&y[i]);
-		#ifdef check
-		if(x[i]<1||x[i]>n||y[i]<1||y[i]>n)
-		{
-			printf("\033[31mData Check Failed.\n");
-			printf("Rule ID %d x %d y %d\033[0m\n",i,x[i],y[i]);
-			return 1;
-		}
-		#endif
 	}
 	#ifndef debug
 	freopen("permutation.out","w",stdout);
