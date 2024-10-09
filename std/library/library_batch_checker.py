@@ -1,7 +1,19 @@
 import os
 import sys
 import time
+validated=[]
+def validate(subid,ptid,target,add=True):
+    print("Validate sub %2d pt %2d with target %s"%(subid,ptid,target),end=' ')
+    sys.stdout.flush()
+    res=os.system("%s < data/library_sub%02d_pt%02d.in"%(target,subid,ptid))
+    if res==0:
+        if add:
+            validated.append((subid,ptid))
+        print("\033[1;32mok\033[0m")
+    sys.stdout.flush()
 def check(subid,ptid,target):
+    if not (subid,ptid) in validated:
+        return
     print("Check sub %2d pt %2d with target %s"%(subid,ptid,target),end=' ')
     sys.stdout.flush()
     with open("library.in","w") as fobj:
@@ -12,6 +24,28 @@ def check(subid,ptid,target):
     print("%4dms"%(int(round((ed-st)*1000,0))),end=' ')
     sys.stdout.flush()
     os.system("library_testlib_checker.exe library.in library.out data/library_sub%02d_pt%02d.ans"%(subid,ptid))
+
+for i in range(1,25+1):
+    valid=0
+    if i<=3:
+        valid=1
+    elif i<=5:
+        valid=2
+    elif i<=7:
+        valid=3
+    elif i<=9:
+        valid=4
+    elif i<=11:
+        valid=5
+    elif i<=13:
+        valid=6
+    elif i<=17:
+        valid=7
+    elif i<=25:
+        valid=8
+    validate(1,i,"library_testlib_validator{valid}.exe".format(valid=valid))
+    if valid<8:
+        validate(1,i,"library_testlib_validator{valid}.exe".format(valid=8),False)
 for i in range(1,3+1):
     check(1,i,"library_sol1.exe")
     pass
