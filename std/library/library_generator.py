@@ -173,7 +173,7 @@ def gen(subid,ptid,target=""):
         m2=1
     if ((subid==1) and (ptid<=5)) or ((subid==2) and (ptid<=2)):
         difficulty_max=10
-    elif ((subid==1) and ((6<=ptid and ptid<=7) or (14<=ptid and ptid<=17))):
+    elif ((subid==1) and ((6<=ptid and ptid<=7) or (14<=ptid and ptid<=17))) or((subid==2) and (ptid==4)):
         difficulty_max=int(1e5)
     else:
         difficulty_max=int(1e9)
