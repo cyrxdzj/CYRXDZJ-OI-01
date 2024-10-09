@@ -3,7 +3,7 @@ import sys
 import time
 validated=[]
 def validate(subid,ptid,target,add=True):
-    print("Validate sub %2d pt %2d with target %s"%(subid,ptid,target),end=' ')
+    print("Validate sub %2d pt %2d with %s"%(subid,ptid,target),end=' ')
     sys.stdout.flush()
     res=os.system("%s < data/library_sub%02d_pt%02d.in"%(target,subid,ptid))
     if res==0:
@@ -12,7 +12,7 @@ def validate(subid,ptid,target,add=True):
         print("\033[1;32mok\033[0m")
     sys.stdout.flush()
 def check(subid,ptid,target):
-    print("Check sub %2d pt %2d with target %s"%(subid,ptid,target),end=' ')
+    print("Check sub %2d pt %2d with %s"%(subid,ptid,target),end=' ')
     sys.stdout.flush()
     if not (subid,ptid) in validated:
         print("\033[1;31mValidation not passed.\033[0m")

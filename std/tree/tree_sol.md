@@ -451,21 +451,21 @@ void update(int o)
 >
 > ```
 > ......
-> Check sub  5 pt  1 with target tree_sol4.exe 1969ms ok 98627 numbers
-> Check sub  5 pt  2 with target tree_sol4.exe  725ms ok 98249 numbers
-> Check sub  5 pt  3 with target tree_sol4.exe 2322ms ok 94676 numbers
-> Check sub  5 pt  4 with target tree_sol4.exe  626ms ok 92496 numbers
-> Check sub  5 pt  5 with target tree_sol4.exe  678ms ok 96442 numbers
-> Check sub  5 pt  6 with target tree_sol4.exe  588ms ok 95139 numbers
-> Check sub  5 pt  7 with target tree_sol4.exe 2552ms ok 99355 numbers
+> Check sub  5 pt  1 with tree_sol4.exe 1944ms ok 98627 numbers
+> Check sub  5 pt  2 with tree_sol4.exe  917ms ok 98249 numbers
+> Check sub  5 pt  3 with tree_sol4.exe 2250ms ok 94676 numbers
+> Check sub  5 pt  4 with tree_sol4.exe  599ms ok 92496 numbers
+> Check sub  5 pt  5 with tree_sol4.exe  601ms ok 96442 numbers
+> Check sub  5 pt  6 with tree_sol4.exe  604ms ok 95139 numbers
+> Check sub  5 pt  7 with tree_sol4.exe 2396ms ok 99355 numbers
 > ......
-> Check sub  5 pt  1 with target tree_sol6.exe 1596ms ok 98627 numbers
-> Check sub  5 pt  2 with target tree_sol6.exe 1420ms ok 98249 numbers
-> Check sub  5 pt  3 with target tree_sol6.exe 1842ms ok 94676 numbers
-> Check sub  5 pt  4 with target tree_sol6.exe 1093ms ok 92496 numbers
-> Check sub  5 pt  5 with target tree_sol6.exe 1738ms ok 96442 numbers
-> Check sub  5 pt  6 with target tree_sol6.exe 1242ms ok 95139 numbers
-> Check sub  5 pt  7 with target tree_sol6.exe 1414ms ok 99355 numbers
+> Check sub  5 pt  1 with tree_sol6.exe 1338ms ok 98627 numbers
+> Check sub  5 pt  2 with tree_sol6.exe  932ms ok 98249 numbers
+> Check sub  5 pt  3 with tree_sol6.exe 1287ms ok 94676 numbers
+> Check sub  5 pt  4 with tree_sol6.exe 1107ms ok 92496 numbers
+> Check sub  5 pt  5 with tree_sol6.exe 1134ms ok 96442 numbers
+> Check sub  5 pt  6 with tree_sol6.exe 1130ms ok 95139 numbers
+> Check sub  5 pt  7 with tree_sol6.exe 1395ms ok 99355 numbers
 > ```
 > 其中 `tree_sol4.exe` 是树上启发式合并，`tree_sol6.exe` 是线段树合并。
 >

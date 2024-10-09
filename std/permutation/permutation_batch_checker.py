@@ -3,7 +3,7 @@ import sys
 import time
 validated=[]
 def validate(subid,ptid,target):
-    print("Validate sub %2d pt %2d with target %s"%(subid,ptid,target),end=' ')
+    print("Validate sub %2d pt %2d with %s"%(subid,ptid,target),end=' ')
     sys.stdout.flush()
     res=os.system("%s < data/permutation_sub%02d_pt%02d.in"%(target,subid,ptid))
     if res==0:
@@ -13,7 +13,7 @@ def validate(subid,ptid,target):
 def check(subid,ptid,target):
     if not (subid,ptid) in validated:
         return
-    print("Check sub %2d pt %2d with target %s"%(subid,ptid,target),end=' ')
+    print("Check sub %2d pt %2d with %s"%(subid,ptid,target),end=' ')
     sys.stdout.flush()
     with open("permutation.in","w") as fobj:
         fobj.write(open("data/permutation_sub%02d_pt%02d.in"%(subid,ptid),"r").read())
