@@ -8,7 +8,7 @@
 | -------------------------------------- | ------------------------------------------------------------ |
 | `introduction.md`                      | 比赛首页介绍内容。                                           |
 | `summary.md`                           | 赛后总结帖模板内容。                                         |
-| `std.md`                               | 本文件。                                                     |
+| `README.md`                            | 本文件。                                                     |
 | `auto_compile.cpp`                     | 自动编译题解、validator、checker 脚本。                      |
 | `all_batch_checker.py`                 | 自动化测试脚本。<br>本质是批量运行 `task/task_batch_checker.py`。 |
 | `pdf_merger.py`                        | PDF 合并脚本。                                               |
