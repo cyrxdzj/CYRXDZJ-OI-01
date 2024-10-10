@@ -57,23 +57,23 @@ def gen(subid,ptid,target=""):
 for i in range(1,5+1):
     gen(1,i,"melody_sol4.exe")
     #pass
-shutil.copy("data/melody_sub01_pt01.in","../../down/melody/melody1.in")
-shutil.copy("data/melody_sub01_pt01.ans","../../down/melody/melody1.ans")
-shutil.copy("data/melody_sub01_pt05.in","../../down/melody/melody2.in")
-shutil.copy("data/melody_sub01_pt05.ans","../../down/melody/melody2.ans")
+shutil.copy2("data/melody_sub01_pt01.in","../../down/melody/melody1.in")
+shutil.copy2("data/melody_sub01_pt01.ans","../../down/melody/melody1.ans")
+shutil.copy2("data/melody_sub01_pt05.in","../../down/melody/melody2.in")
+shutil.copy2("data/melody_sub01_pt05.ans","../../down/melody/melody2.ans")
 for i in range(1,5+1):
     gen(2,i,"melody_sol4.exe")
     #pass
 for i in range(1,5+1):
     gen(3,i,"melody_sol4.exe")
     #pass
-shutil.copy("data/melody_sub03_pt01.in","../../down/melody/melody3.in")
-shutil.copy("data/melody_sub03_pt01.ans","../../down/melody/melody3.ans")
+shutil.copy2("data/melody_sub03_pt01.in","../../down/melody/melody3.in")
+shutil.copy2("data/melody_sub03_pt01.ans","../../down/melody/melody3.ans")
 for i in range(1,5+1):
     gen(4,i,"melody_sol4.exe")
     #pass
 for i in range(1,5+1):
     gen(5,i,"melody_sol4.exe")
     #pass
-shutil.copy("data/melody_sub05_pt03.in","../../down/melody/melody4.in")
-shutil.copy("data/melody_sub05_pt03.ans","../../down/melody/melody4.ans")
+shutil.copy2("data/melody_sub05_pt03.in","../../down/melody/melody4.in")
+shutil.copy2("data/melody_sub05_pt03.ans","../../down/melody/melody4.ans")

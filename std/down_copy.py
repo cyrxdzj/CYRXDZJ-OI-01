@@ -10,9 +10,9 @@ for opt in opts:
         only_task.append(opt[1])
 task_list=["permutation","melody","tree","library"]
 print("Copy files to down")
-shutil.copy("../std/permutation/permutation_testlib_checker.cpp","../down/permutation/checker.cpp")
-shutil.copy("../std/permutation/testlib.h","../down/permutation/testlib.h")
-shutil.copy("../std/library/library_probability_calc.cpp","../down/library/library_probability_calc.cpp")
+shutil.copy2("../std/permutation/permutation_testlib_checker.cpp","../down/permutation/checker.cpp")
+shutil.copy2("../std/permutation/testlib.h","../down/permutation/testlib.h")
+shutil.copy2("../std/library/library_probability_calc.cpp","../down/library/library_probability_calc.cpp")
 def write_zip(fa_dir,tgt_zip_path,hint):
     file_list=[]
     #fa_dir="../down"

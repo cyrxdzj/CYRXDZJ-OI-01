@@ -83,8 +83,8 @@ def gen(subid,ptid,target=""):
 for i in range(1,3+1):
     gen(1,i,"tree_sol1.exe")
     #pass
-shutil.copy("data/tree_sub01_pt01.in","../../down/tree/tree1.in")
-shutil.copy("data/tree_sub01_pt01.ans","../../down/tree/tree1.ans")
+shutil.copy2("data/tree_sub01_pt01.in","../../down/tree/tree1.in")
+shutil.copy2("data/tree_sub01_pt01.ans","../../down/tree/tree1.ans")
 for i in range(1,6+1):
     gen(2,i,"tree_sol2.exe")
     #pass
@@ -95,10 +95,10 @@ for i in range(1,6+1):
 for i in range(1,7+1):
     gen(4,i,"tree_sol4.exe")
     #pass
-shutil.copy("data/tree_sub04_pt07.in","../../down/tree/tree2.in")
-shutil.copy("data/tree_sub04_pt07.ans","../../down/tree/tree2.ans")
+shutil.copy2("data/tree_sub04_pt07.in","../../down/tree/tree2.in")
+shutil.copy2("data/tree_sub04_pt07.ans","../../down/tree/tree2.ans")
 for i in range(1,7+1):
     gen(5,i,"tree_sol4.exe")
     #pass
-shutil.copy("data/tree_sub05_pt07.in","../../down/tree/tree3.in")
-shutil.copy("data/tree_sub05_pt07.ans","../../down/tree/tree3.ans")
+shutil.copy2("data/tree_sub05_pt07.in","../../down/tree/tree3.in")
+shutil.copy2("data/tree_sub05_pt07.ans","../../down/tree/tree3.ans")
