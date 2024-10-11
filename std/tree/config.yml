@@ -29,7 +29,7 @@ subtasks:
         output: tree_sub02_pt05.ans
       - input:  tree_sub02_pt06.in
         output: tree_sub02_pt06.ans
-  - score: 30
+  - score: 36
     type: sum
     cases:
       - input:  tree_sub03_pt01.in
@@ -59,7 +59,7 @@ subtasks:
         output: tree_sub04_pt05.ans
       - input:  tree_sub04_pt06.in
         output: tree_sub04_pt06.ans
-  - score: 42
+  - score: 36
     type: sum
     cases:
       - input:  tree_sub05_pt01.in
