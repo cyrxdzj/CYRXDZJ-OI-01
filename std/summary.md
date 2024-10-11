@@ -7,7 +7,7 @@
 | 英文名     | permutation                  | melody                            | tree                              | library                            |
 | 难度       | $\textcolor{#F39C11}{普及-}$ | $\textcolor{#52C41A}{普及+/提高}$ | $\textcolor{#9D3DCF}{省选+/NOI-}$ | $\textcolor{#3498DB}{提高+/省选-}$ |
 | C 班 AC 率 | $\ge95\%$                    | $\ge60\%$                         | $\le15\%$                         | $\le30\%$                          |
-| D 班 AC 率 | $\ge60\%$                    | $\ge30\%$                         | $=0\%$                            | $\le5\%$                           |
+| D 班 AC 率 | $\ge60\%$                    | $\ge30\%$                         | $\le5\%$                          | $\le5\%$                           |
 
 其中 T4 内心深处的图书馆 的思维难度低于 T3 承载梦想的心愿树，但 T4 的代码量高于 T3。
 
