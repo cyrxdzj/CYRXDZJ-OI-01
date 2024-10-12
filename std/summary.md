@@ -16,3 +16,19 @@
 本场比赛算是一个水题信心赛，前两题很水，后两题的难度也不算很高，应该很好改。
 
 请大家在下方说说这场比赛的感想。
+
+## 源代码公开与版权信息
+
+[cyrxdzj/CYRXDZJ-OI-01: CYRXDZJ-OI-01，广州市铁一中学 CSP-S 模拟赛文件 (github.com)](https://github.com/cyrxdzj/CYRXDZJ-OI-01)
+
+包含比赛筹办时需要的脚本、数据等文件。
+
+题目：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)
+
+题解：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)
+
+数据：[广州市铁一中学 邓子君](https://www.luogu.com.cn/user/387836)，Powered by [CYaRon](https://github.com/luogu-dev/cyaron)
+
+题面部分内容的版权持有方为 `SEGA Corporation`，`Colorful Palette Inc.`，`Crypton Media Future Inc.`等公司，仅以非商业目的使用。
+
+在 [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode.zh-hans) 协议下共享。
