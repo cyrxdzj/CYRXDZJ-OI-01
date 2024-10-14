@@ -1,4 +1,4 @@
-# CYRXDZJ-OI-01 赛后总结
+# <center>CYRXDZJ-OI-01 赛后总结</center>
 
 ## 预估难度
 
